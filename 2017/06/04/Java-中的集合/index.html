@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java 中的集合 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近学习了集合，认为有必要做一下总结。希望能够帮助自己的同时，帮助到更多人。本文内容较长，如有错误，还请指出，万分感激。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 中的集合">
+<meta property="og:url" content="http://yoursite.com/2017/06/04/Java-中的集合/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近学习了集合，认为有必要做一下总结。希望能够帮助自己的同时，帮助到更多人。本文内容较长，如有错误，还请指出，万分感激。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-5b695fcd2225f2f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-eb2a4ec271b3b2e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-4239f1f1a5363ac6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-ad0ccb78ca78d94c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-05afb267e8668d63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-43996594f6d6e032.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-ca01336bc89e3fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-84aa3c96aeb5a958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-8c3b0316aea5d860.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-a67b1a19e926aea3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-d5b80836ce758850.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-04T10:56:32.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 中的集合">
+<meta name="twitter:description" content="最近学习了集合，认为有必要做一下总结。希望能够帮助自己的同时，帮助到更多人。本文内容较长，如有错误，还请指出，万分感激。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-5b695fcd2225f2f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java-中的集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/04/Java-中的集合/" class="article-date">
+  <time datetime="2017-06-04T09:21:59.000Z" itemprop="datePublished">2017-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 中的集合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最近学习了集合，认为有必要做一下总结。希望能够帮助自己的同时，帮助到更多人。本文内容较长，如有错误，还请指出，万分感激。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-Java-集合类的基本概念"><a href="#1-Java-集合类的基本概念" class="headerlink" title="1.Java 集合类的基本概念"></a>1.Java 集合类的基本概念</h2><p>在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，java的集合类就是一个很好的设计方案了。</p>
+<p>集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类。</p>
+<p>数组可以存放基本数据类型，存放引用数据类型。但是集合<strong>只能存放引用数据类型</strong>。但是我们学习过包装类，所以可以自动装箱，把基本数据类型直接转化为包装类存入集合中。</p>
+<p>Java容器类类库的用途是”保存对象”，并将其划分为两个不同的概念：Collection 和 Map。Collection和Map的区别在于容器中每个位置保存的元素个数:<br>1) Collection 每个位置只能保存一个元素(对象)<br>2) Map 保存的是”键值对”，就像一个小型数据库。我们可以通过”键”找到该键对应的”值”</p>
+<p>先把这两个方面的结构图放下面，再详细来说一下这两个方面。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-5b695fcd2225f2f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Collection 详细结构图"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-eb2a4ec271b3b2e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Map 详细结构图"></p>
+<h2 id="2-Collection-接口"><a href="#2-Collection-接口" class="headerlink" title="2.Collection 接口"></a>2.Collection 接口</h2><p>Collection 是一个接口，不能创建对象，只能创建他的实现类。<br>Collection 中有很多方法，在这儿只看其中典型的方法：</p>
+<ul>
+<li>增加：add(E e) addAll(Collection&lt;? extends E&gt; c) ；</li>
+<li>删除：clear() remove(Object o)  removeAll(Collection&lt;?&gt; c)；</li>
+<li>查看：contains(Object o) containsAll(Collection&lt;?&gt; c)  isEmpty() </li>
+<li>iterator()   retainAll(Collection&lt;?&gt; c)   size()</li>
+</ul>
+<h3 id="2-1-利用-Collection-接口创建-ArrayList-类："><a href="#2-1-利用-Collection-接口创建-ArrayList-类：" class="headerlink" title="2.1 利用 Collection 接口创建 ArrayList 类："></a>2.1 利用 Collection 接口创建 ArrayList 类：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Collection col=<span class="keyword">new</span> ArrayList();</div><div class="line">System.out.println(col.isEmpty());<span class="comment">//true</span></div><div class="line">System.out.println(col.size());<span class="comment">//0</span></div><div class="line">col.add(<span class="number">12</span>);<span class="comment">//我这里放入的不是int类型的12，而是自动装箱,等效于col.add(new Integer(12));</span></div><div class="line">col.add(<span class="number">7</span>);</div><div class="line">col.add(<span class="number">9</span>);</div><div class="line">col.add(<span class="number">12</span>);</div><div class="line">col.add(<span class="number">19</span>);</div><div class="line">System.out.println(col);<span class="comment">//[12, 7, 9, 12, 19]</span></div><div class="line">System.out.println(col.isEmpty()); <span class="comment">//false</span></div><div class="line">System.out.println(col.size()); <span class="comment">//5</span></div></pre></td></tr></table></figure>
+<p><strong>注意</strong> ：例如 col.add(12); 放入的不是 int 类型的12，而是自动装箱，等效于 <strong>col.add(new Integer(12));</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Collection col2=<span class="keyword">new</span> ArrayList();</div><div class="line">col2.add(<span class="number">11</span>);</div><div class="line">col2.add(<span class="number">22</span>);</div><div class="line">col2.add(<span class="number">33</span>);</div><div class="line">col2.add(<span class="number">44</span>);</div><div class="line">System.out.println(col2);<span class="comment">//[11, 22, 33, 44]</span></div><div class="line">col.addAll(col2);	</div><div class="line">System.out.println(col);<span class="comment">//[12, 7, 9, 12, 19, 11, 22, 33, 44]</span></div><div class="line">System.out.println(col2);<span class="comment">//[11, 22, 33, 44]</span></div></pre></td></tr></table></figure>
+<p>这段代码中的<strong>addAll()</strong> 方法相当将 col2 里面的全部内容放到了 col 里面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.println(col.retainAll(col2));<span class="comment">//这个方法做了两件事：(1)返回true/false;(2)同时对集合进行处理。</span></div><div class="line">System.out.println(col); <span class="comment">//[]</span></div><div class="line">System.out.println(col2); <span class="comment">//[11, 22, 33, 44]</span></div></pre></td></tr></table></figure>
+<p><strong>retainAll() 方法（标@）：对 col 取 col 与 col2 的交集。（注意：是只对 col 操作，不涉及 col2 !!!）</strong></p>
+<h3 id="2-2-利用-List-接口创建-ArrayList-类："><a href="#2-2-利用-List-接口创建-ArrayList-类：" class="headerlink" title="2.2 利用 List 接口创建 ArrayList 类："></a>2.2 利用 List 接口创建 ArrayList 类：</h3><p>下面只讲几个比较常用的方法，其他的很好理解，不再赘述，还请谅解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">List li=<span class="keyword">new</span> ArrayList();</div><div class="line">li.add(<span class="number">12</span>);</div><div class="line">li.add(<span class="number">3</span>);</div><div class="line">li.add(<span class="number">36</span>);</div><div class="line">li.add(<span class="number">24</span>);</div><div class="line">li.add(<span class="number">12</span>);</div><div class="line">li.add(<span class="number">9</span>);</div><div class="line">System.out.println(li);<span class="comment">//[12, 36, 24, 12, 9]</span></div><div class="line">li.add(<span class="number">2</span>,<span class="number">53</span>);</div><div class="line">System.out.println(li);<span class="comment">//[12, 3, 53, 36, 24, 12, 9]</span></div></pre></td></tr></table></figure>
+<p><strong>add(int index, E element)</strong> 方法：相当于在索引为 index 的位置<strong>插入</strong>元素 element，注意是<strong>插入</strong>，不是取代！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">li.remove(<span class="number">3</span>);<span class="comment">//首要还是当做索引来看</span></div><div class="line">System.out.println(li);<span class="comment">//[12, 3, 53, 24, 12, 9]</span></div></pre></td></tr></table></figure>
+<p>li 中虽然有元素3，但是 remove 方法还是把 3 当作<strong>索引</strong>来看。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">li.set(<span class="number">2</span>, <span class="number">66</span>);</div><div class="line">System.out.println(li);<span class="comment">//[12, 3, 66, 24, 12, 9]</span></div></pre></td></tr></table></figure>
+<p><strong>set(int index, E element)</strong>方法:将索引为 index 的位置上的内容<strong>替换</strong>为 element。</p>
+<p><code>System.out.println(li.indexOf(12));//获取第一个元素12对应的索引、下标</code></p>
+<p><strong>indexOf(Object o)</strong>方法：得到索引为 o 的位置上的内容。</p>
+<h3 id="2-3-List-集合遍历"><a href="#2-3-List-集合遍历" class="headerlink" title="2.3 List 集合遍历"></a>2.3 List 集合遍历</h3><p><strong>说明</strong>：与索引有关的遍历都是在 List 接口下的。</p>
+<p><strong>List 集合遍历有三种方式</strong></p>
+<p><strong>第一种</strong>：foreach(代码接上面)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.foreach</span></div><div class="line"><span class="keyword">for</span>(Object o:li)&#123;</div><div class="line">	System.out.print(o+<span class="string">"\t"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>第二种</strong>：迭代器</p>
+<p>介绍一下迭代器接口：Interface Iterable</p>
+<p>迭代器接口，这是Collection类的父接口。<strong>实现这个Iterable接口的对象允许使用foreach进行遍历</strong>，也就是说，所有的Collection集合对象都具有”foreach可遍历性”。这个Iterable接口只有一个方法: iterator()。它返回一个代表当前集合对象的泛型<t>迭代器，用于之后的遍历操作。</t></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//2.迭代器</span></div><div class="line">Iterator it = li.iterator();</div><div class="line"><span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">	System.out.print(it.next()+<span class="string">"\t"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>第三种</strong>：普通 for 循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//3.普通for循环</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=li.size()-<span class="number">1</span>;i++)&#123;</div><div class="line">	System.out.print(li.get(i)+<span class="string">"\t"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>补充一个知识点</strong>：在 ArrayList 类中放入引用数据类型。代码如下(引用数据类型自己可以随便建，不要在意我的代码中的引用数据类型哈)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	ArrayList al=<span class="keyword">new</span> ArrayList();</div><div class="line">	Person p=<span class="keyword">new</span> Person(<span class="string">"kelsey"</span>, <span class="number">18</span>, <span class="number">165</span>, Gender.女);</div><div class="line">	al.add(p);</div><div class="line">	System.out.println(al);	</div><div class="line">    System.out.println(<span class="string">"================================"</span>);</div><div class="line">	al.add(<span class="keyword">new</span> Person(<span class="string">"Oliver"</span>,<span class="number">19</span>,<span class="number">182</span>,Gender.男));</div><div class="line">	al.add(<span class="keyword">new</span> Person(<span class="string">"lay"</span>,<span class="number">18</span>,<span class="number">160</span>,Gender.女));</div><div class="line">	System.out.println(al);</div><div class="line">	System.out.println(<span class="string">"================================="</span>);</div><div class="line">	<span class="comment">//遍历；</span></div><div class="line">	<span class="comment">//1.普通 for 循环；</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; al.size(); i++) &#123;</div><div class="line">		<span class="comment">//Person p1=(Person)al.get(i);</span></div><div class="line">		System.out.println(al.get(i));</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//2.foreach</span></div><div class="line">	<span class="keyword">for</span> (Object o : al) &#123;</div><div class="line">		System.out.println(o);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//3.迭代器；</span></div><div class="line">	Iterator it = al.iterator();</div><div class="line">	<span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">		System.out.println(it.next());</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-泛型"><a href="#3-泛型" class="headerlink" title="3.泛型"></a>3.泛型</h2><p>简单来说，<strong>泛型就是规定你这个集合中只能存入这个类型的数据。</strong><br>泛型的格式：&lt;&gt; ，那么为啥用&lt;&gt;呢？  — 因为没办法。。。（凡是成对的符号都被占用了，我能怎么办，我也很绝望）</p>
+<p>代码如下：</p>
+<p><code>ArrayList&lt;String&gt; al=new ArrayList&lt;String&gt;();</code></p>
+<p>加上<string>以后，只能放进 String 类型的变量。</string></p>
+<h3 id="3-1-泛型类"><a href="#3-1-泛型类" class="headerlink" title="3.1 泛型类"></a>3.1 泛型类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FanXing</span>&lt;<span class="title">AA</span>&gt;</span>&#123;</div><div class="line">	<span class="comment">//我现在定义了一个普通的类。这个类的名字叫：FanXing</span></div><div class="line">	<span class="comment">//如何变成泛型类呢？在后面加泛型,泛型格式：&lt;&gt; 里面的字母 就是代表一个未知的类型。这个字母你自己定义。</span></div><div class="line">	<span class="comment">//这个类型AA在你定义的时候，是不确定的，那啥时候确定？？在创建对象的时候。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建泛型对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">//创建一个普通的类的对象：FanXing ---出现黄色警告  ，因为是泛型类  但是你把它当做普通的类使用的。</span></div><div class="line">	FanXing fx=<span class="keyword">new</span> FanXing();</div><div class="line">	List li=<span class="keyword">new</span> ArrayList();	</div><div class="line">	<span class="comment">//定义泛型类：</span></div><div class="line">	FanXing&lt;String&gt; fx02=<span class="keyword">new</span> FanXing&lt;String&gt;();</div><div class="line">	FanXing&lt;Integer&gt; fx03=<span class="keyword">new</span> FanXing&lt;Integer&gt;();</div><div class="line">	FanXing&lt;Person&gt; fx04=<span class="keyword">new</span> FanXing&lt;Person&gt;();</div><div class="line">    </div><div class="line">	ArrayList&lt;String&gt; al=<span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">	ArrayList&lt;Integer&gt; al2=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">	ArrayList&lt;Person&gt; al3=<span class="keyword">new</span> ArrayList&lt;Person&gt;();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-2-泛型方法"><a href="#3-2-泛型方法" class="headerlink" title="3.2 泛型方法"></a>3.2 泛型方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FanXing02</span>&lt;<span class="title">AA</span>&gt;</span>&#123;<span class="comment">//我现在定义了一个泛型类：名字是FanXing02；后面的AA类型在创建对象的时候确定。</span></div><div class="line">	<span class="comment">//普通方法</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">	<span class="comment">//方法的参数是AA---AA的类型是在创建对象的时候就已经确定了。</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(AA a)</span></span>&#123;&#125;</div><div class="line">	<span class="comment">//方法的参数是BB ---BB在创建对象的时候并没有确定，而是在方法调用的时候确定的。</span></div><div class="line">	<span class="keyword">public</span> &lt;BB&gt; <span class="function"><span class="keyword">void</span> <span class="title">c</span><span class="params">(BB b)</span></span>&#123;&#125;</div><div class="line">	<span class="comment">//静态方法1----不可以。static修饰的方法，先于对象存在的，此时没有AA这个类型。</span></div><div class="line">	<span class="comment">//public static void d(AA a)&#123;&#125;</span></div><div class="line">	<span class="comment">//静态方法2-----可以 :因为BB只要你不调用，就是不确定的，所以随你加不加static</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;BB&gt; <span class="function"><span class="keyword">void</span> <span class="title">e</span><span class="params">(BB b)</span></span>&#123;&#125;</div><div class="line">	<span class="comment">//可变参数，内部当做数组来处理</span></div><div class="line">	<span class="keyword">public</span> &lt;Q&gt; Q[] f(Q...q)&#123;</div><div class="line">		<span class="comment">//foreach处理数组。</span></div><div class="line">		<span class="keyword">for</span>(Q a:q)&#123;</div><div class="line">			System.out.println(a);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> q;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		FanXing02&lt;String&gt; fx=<span class="keyword">new</span> FanXing02&lt;String&gt;();</div><div class="line">		fx.a();</div><div class="line">		fx.b(<span class="string">"java"</span>);</div><div class="line">		<span class="comment">//这个方法 解决了参数个数相同下的方法重载的问题。</span></div><div class="line">		fx.c(<span class="string">"java"</span>);</div><div class="line">		fx.c(<span class="number">12</span>);</div><div class="line">		fx.c(<span class="keyword">new</span> Person(<span class="number">18</span>, <span class="number">180.8</span>));</div><div class="line">		</div><div class="line">		FanXing02.e(<span class="string">"java"</span>);</div><div class="line">		</div><div class="line">		<span class="comment">//这个方法 解决了参数个数不同下的方法重载的问题。</span></div><div class="line">		fx.f(<span class="number">12</span>,<span class="string">"java"</span>);</div><div class="line">		fx.f(<span class="string">"html"</span>);</div><div class="line">		fx.f(<span class="number">23</span>,<span class="string">"888"</span>,<span class="keyword">new</span> Person(<span class="number">18</span>, <span class="number">180.8</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-3-泛型接口"><a href="#3-3-泛型接口" class="headerlink" title="3.3 泛型接口"></a>3.3 泛型接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FanXing03</span>&lt;<span class="title">AA</span>&gt; </span>&#123;</div><div class="line">	<span class="comment">//FanXing03是一个普通的接口，名字是:FanXing03.如何变成泛型接口：在后面加泛型即可</span></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">FanXing03</span></span>&#123;<span class="comment">//实现接口的时候，没有泛型</span></div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">FanXing03</span>&lt;<span class="title">String</span>&gt;</span>&#123;<span class="comment">//在实现接口的时候，泛型种类确定--String</span></div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">c</span> &lt;<span class="title">AA</span>&gt; <span class="keyword">implements</span> <span class="title">FanXing03</span>&lt;<span class="title">AA</span>&gt;</span>&#123;<span class="comment">//在实现接口的时候，泛型种类不确定。</span></div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-4-泛型的高级应用"><a href="#3-4-泛型的高级应用" class="headerlink" title="3.4 泛型的高级应用"></a>3.4 泛型的高级应用</h3><h4 id="3-4-1-泛型的上限"><a href="#3-4-1-泛型的上限" class="headerlink" title="3.4.1 泛型的上限"></a>3.4.1 泛型的上限</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		ArrayList&lt;Person&gt; al1=<span class="keyword">new</span> ArrayList&lt;Person&gt;();</div><div class="line">		al1.add(<span class="keyword">new</span> Person(<span class="string">"lili"</span>, <span class="number">18</span>));</div><div class="line">		al1.add(<span class="keyword">new</span> Person(<span class="string">"nana"</span>, <span class="number">19</span>));</div><div class="line">		al1.add(<span class="keyword">new</span> Person(<span class="string">"feifei"</span>, <span class="number">15</span>));</div><div class="line">		al1.add(<span class="keyword">new</span> Person(<span class="string">"sisi"</span>, <span class="number">17</span>));</div><div class="line">		</div><div class="line">		bianLi(al1);</div><div class="line">		</div><div class="line">		ArrayList&lt;Student&gt; al2=<span class="keyword">new</span> ArrayList&lt;Student&gt;();</div><div class="line">		al2.add(<span class="keyword">new</span> Student(<span class="number">180.0</span>));</div><div class="line">		al2.add(<span class="keyword">new</span> Student(<span class="number">170.4</span>));</div><div class="line">		al2.add(<span class="keyword">new</span> Student(<span class="number">169.6</span>));</div><div class="line">		al2.add(<span class="keyword">new</span> Student(<span class="number">159.7</span>));</div><div class="line">		</div><div class="line">		bianLi(al2);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bianLi</span><span class="params">(ArrayList&lt;? extends Person&gt; al)</span></span>&#123;<span class="comment">//只要是Person的子类或者Person 可以传入</span></div><div class="line">		<span class="keyword">for</span> (Object p : al) &#123;</div><div class="line">			System.out.println(p);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-4-1-泛型的上限-1"><a href="#3-4-1-泛型的上限-1" class="headerlink" title="3.4.1 泛型的上限"></a>3.4.1 泛型的上限</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bianLi</span><span class="params">(ArrayList&lt;? <span class="keyword">super</span> Person&gt; al)</span></span>&#123;<span class="comment">//只要是Person的父类或者Person 可以传入</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-LinkedList"><a href="#4-LinkedList" class="headerlink" title="4. LinkedList"></a>4. LinkedList</h2><p>implements List<e>，实现List接口，能对它进行队列操作，即可以根据索引来随机访问集合中的元素。</e></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-4239f1f1a5363ac6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="LinkedList 原理.png"></p>
+<h3 id="4-1-iterator-方法，Iterator接口，Iterable接口区别"><a href="#4-1-iterator-方法，Iterator接口，Iterable接口区别" class="headerlink" title="4.1 iterator()方法，Iterator接口，Iterable接口区别"></a>4.1 iterator()方法，Iterator接口，Iterable接口区别</h3><p><img src="http://upload-images.jianshu.io/upload_images/5499281-ad0ccb78ca78d94c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Iterable 接口1.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-05afb267e8668d63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Iterable 接口2.png"></p>
+<p>上文说过，<strong>实现Iterable接口的对象允许使用foreach进行遍历。</strong></p>
+<h3 id="4-2-ConcurrentModificationException"><a href="#4-2-ConcurrentModificationException" class="headerlink" title="4.2 ConcurrentModificationException"></a>4.2 ConcurrentModificationException</h3><p>ConcurrentModificationException 称为并发修改异常。</p>
+<ul>
+<li>异常产生的原因<br>迭代器是依赖于集合而存在的，在判断成功后，集合的中新添加了元素，而迭代器却不知道，所以就报错了，这个错叫并发修改异常。<br>简单描述就是：<strong>迭代器遍历元素的时候，通过集合是不能修改元素的。</strong></li>
+</ul>
+<ul>
+<li><p>解决方法<br>（1）迭代器迭代元素，迭代器修改元素；<br>（2）集合遍历元素，集合修改元素(普通for)。</p>
+<p>在这里主要讲一下第一种解决方法：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ArrayList&lt;String&gt; al=<span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">	al.add(<span class="string">"javase"</span>);</div><div class="line">	al.add(<span class="string">"html"</span>);</div><div class="line">	al.add(<span class="string">"css"</span>);</div><div class="line">	al.add(<span class="string">"js"</span>);</div><div class="line">		</div><div class="line">ListIterator&lt;String&gt; li = al.listIterator();</div><div class="line">	<span class="keyword">while</span>(li.hasNext())&#123;</div><div class="line">		<span class="keyword">if</span>(li.next().equals(<span class="string">"javase"</span>))&#123;</div><div class="line">			li.add(<span class="string">"oracle"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">System.out.println(li.hasNext());</div></pre></td></tr></table></figure>
+<h2 id="5-子接口-set"><a href="#5-子接口-set" class="headerlink" title="5. 子接口 set"></a>5. 子接口 set</h2><h3 id="5-1-HashSet"><a href="#5-1-HashSet" class="headerlink" title="5.1 HashSet"></a>5.1 HashSet</h3><h4 id="5-1-1-在集合中存放-Integer-类型的数据："><a href="#5-1-1-在集合中存放-Integer-类型的数据：" class="headerlink" title="5.1.1 在集合中存放 Integer 类型的数据："></a>5.1.1 在集合中存放 Integer 类型的数据：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Set&lt;Integer&gt; set=<span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">		set.add(<span class="number">12</span>);</div><div class="line">		set.add(<span class="number">8</span>);</div><div class="line">		set.add(<span class="number">32</span>);</div><div class="line">		set.add(<span class="number">12</span>);</div><div class="line">		set.add(<span class="number">23</span>);</div><div class="line">		set.add(<span class="number">19</span>);</div><div class="line">		</div><div class="line">		System.out.println(set);<span class="comment">//[19, 32, 23, 8, 12] ---唯一，无序（没有按照输入顺序进行输出）</span></div><div class="line">		System.out.println(set.size());<span class="comment">//5</span></div><div class="line">		</div><div class="line">		<span class="comment">//两种遍历方式 ：foreach,迭代器。（参照上面的自己试着完成）</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-1-2-在集合中存放-String-类型的数据："><a href="#5-1-2-在集合中存放-String-类型的数据：" class="headerlink" title="5.1.2 在集合中存放 String 类型的数据："></a>5.1.2 在集合中存放 String 类型的数据：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test02</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Set&lt;String&gt; set=<span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">		set.add(<span class="string">"java"</span>);</div><div class="line">		set.add(<span class="string">"html"</span>);</div><div class="line">		set.add(<span class="string">"js"</span>);</div><div class="line">		set.add(<span class="string">"java"</span>);</div><div class="line">		set.add(<span class="string">"php"</span>);</div><div class="line">		set.add(<span class="string">"ios"</span>);</div><div class="line">		</div><div class="line">		System.out.println(set); <span class="comment">//[ios, php, js, html, java]---唯一，无序。（没有按照输入顺序进行输出）</span></div><div class="line">		System.out.println(set.size()); <span class="comment">//5 </span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-1-3-在集合中存放引用数据类型的数据："><a href="#5-1-3-在集合中存放引用数据类型的数据：" class="headerlink" title="5.1.3 在集合中存放引用数据类型的数据："></a>5.1.3 在集合中存放引用数据类型的数据：</h4><p>代码中的引用数据类型自己随便定义，只要正确就行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test03</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Set&lt;Student&gt; set=<span class="keyword">new</span> HashSet&lt;Student&gt;();</div><div class="line">		set.add(<span class="keyword">new</span> Student(<span class="string">"lili"</span>, <span class="number">18</span>));</div><div class="line">		set.add(<span class="keyword">new</span> Student(<span class="string">"nana"</span>, <span class="number">17</span>));</div><div class="line">		set.add(<span class="keyword">new</span> Student(<span class="string">"lulu"</span>, <span class="number">19</span>));</div><div class="line">		set.add(<span class="keyword">new</span> Student(<span class="string">"lili"</span>, <span class="number">18</span>));</div><div class="line">		set.add(<span class="keyword">new</span> Student(<span class="string">"feifei"</span>, <span class="number">18</span>));</div><div class="line">		set.add(<span class="keyword">new</span> Student(<span class="string">"sisi"</span>, <span class="number">16</span>));</div><div class="line">		</div><div class="line">		System.out.println(set);<span class="comment">//[Student [name=feifei, age=18], Student [name=lili, age=18], Student [name=lulu, age=19], Student [name=lili, age=18], Student [name=sisi, age=16], Student [name=nana, age=17]] </span></div><div class="line">		System.out.println(set.size());<span class="comment">// 6</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这段代码中大家可以发现重复的数据仍然放进去了。这是为啥呢，不是说 set 是唯一的吗？<br>那么就要了解 HashSet 底层原理了：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-43996594f6d6e032.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" HashSet 底层原理.png"></p>
+<ul>
+<li>如果看Integer 和 String 的源码（看源码：按住Ctrl，同时鼠标点击Integer 或者 String）,就会发现它们都含有 <strong>hashCode() 和 equals() 方法</strong>，HashSet 会调用这两个，所以不论是放入 Integer 类型，还是放入 String 类型，结果都会是唯一的。但是放入的引用数据类型里却没有这两种方法。</li>
+<li>解决方法：引用数据类型里重写 hashCode 和 equals 方法。</li>
+</ul>
+<h3 id="5-2-LinkedHashSet-类"><a href="#5-2-LinkedHashSet-类" class="headerlink" title="5.2 LinkedHashSet 类"></a>5.2 LinkedHashSet 类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	Set&lt;Integer&gt; set=<span class="keyword">new</span> LinkedHashSet&lt;&gt;();</div><div class="line">	set.add(<span class="number">12</span>);</div><div class="line">	set.add(<span class="number">8</span>);</div><div class="line">	set.add(<span class="number">32</span>);</div><div class="line">	set.add(<span class="number">12</span>);</div><div class="line">	set.add(<span class="number">23</span>);</div><div class="line">	set.add(<span class="number">19</span>);</div><div class="line">	</div><div class="line">	System.out.println(set);<span class="comment">//[12, 8, 32, 23, 19]</span></div><div class="line">	System.out.println(set.size());<span class="comment">//5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-3-TreeSet"><a href="#5-3-TreeSet" class="headerlink" title="5.3 TreeSet"></a>5.3 TreeSet</h3><h4 id="5-3-1-放入Integer类型数据："><a href="#5-3-1-放入Integer类型数据：" class="headerlink" title="5.3.1 放入Integer类型数据："></a>5.3.1 放入Integer类型数据：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		TreeSet&lt;Integer&gt; ts=<span class="keyword">new</span> TreeSet&lt;Integer&gt;();</div><div class="line">		System.out.println(ts.add(<span class="number">33</span>));;</div><div class="line">		ts.add(<span class="number">16</span>);</div><div class="line">		ts.add(<span class="number">23</span>);</div><div class="line">		ts.add(<span class="number">19</span>);</div><div class="line">		ts.add(<span class="number">5</span>);</div><div class="line">		System.out.println(ts.add(<span class="number">33</span>));;</div><div class="line">		ts.add(<span class="number">42</span>);</div><div class="line">		</div><div class="line">		System.out.println(ts);<span class="comment">//[5, 16, 19, 23, 33, 42]</span></div><div class="line">		System.out.println(ts.size());<span class="comment">//6</span></div><div class="line">		<span class="comment">//唯一，有序（按照从小到大的顺序） 无序（没有按照输入顺序进行输出）</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>TreeSet 原理</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-ca01336bc89e3fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TreeSet 原理.png"></p>
+<h4 id="5-3-2-放入String类型数据："><a href="#5-3-2-放入String类型数据：" class="headerlink" title="5.3.2 放入String类型数据："></a>5.3.2 放入String类型数据：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		TreeSet&lt;String&gt; ts=<span class="keyword">new</span> TreeSet&lt;String&gt;();</div><div class="line">		ts.add(<span class="string">"banana"</span>);</div><div class="line">		ts.add(<span class="string">"apple"</span>);</div><div class="line">		ts.add(<span class="string">"demo"</span>);</div><div class="line">		ts.add(<span class="string">"excuse me?"</span>);</div><div class="line">		ts.add(<span class="string">"apple"</span>);</div><div class="line">		ts.add(<span class="string">"coco"</span>);</div><div class="line">		ts.add(<span class="string">"final"</span>);</div><div class="line">		</div><div class="line">		System.out.println(ts);<span class="comment">// [apple, banana, coco, demo, excuse me?, final]</span></div><div class="line">		System.out.println(ts.size());<span class="comment">// 6</span></div><div class="line">	 </div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-3-3-放入自定义-引用数据类型："><a href="#5-3-3-放入自定义-引用数据类型：" class="headerlink" title="5.3.3 放入自定义 引用数据类型："></a>5.3.3 放入自定义 引用数据类型：</h4><p><img src="http://upload-images.jianshu.io/upload_images/5499281-84aa3c96aeb5a958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="LinkedList 原理.png"></p>
+<ul>
+<li><p>原因：</p>
+<p>实际上，Integer，String的底层全部都实现了Comparable接口。实现了compareTo方法。这个方法返回int类型的数据。</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-8c3b0316aea5d860.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Integer 底层原理"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-a67b1a19e926aea3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="String 底层原理.png"></p>
+<ul>
+<li><p>解决：</p>
+<p>实现Comparable接口，重写compareTo方法。</p>
+</li>
+</ul>
+<p><strong>方式1：内部比较器：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Comparable</span></span>&#123;</div><div class="line">	String name;</div><div class="line">	<span class="keyword">int</span> age;</div><div class="line">	<span class="keyword">double</span> height;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age, <span class="keyword">double</span> height)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">		<span class="keyword">this</span>.height = height;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Person [name="</span> + name + <span class="string">", age="</span> + age + <span class="string">", height="</span> + height</div><div class="line">				+ <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">		<span class="comment">//按照年龄排序</span></div><div class="line">		<span class="comment">//Person p=(Person)o;</span></div><div class="line">		<span class="comment">//return this.age-p.age;</span></div><div class="line">		</div><div class="line">		<span class="comment">//按照身高排序</span></div><div class="line">		<span class="comment">//Person p=(Person)o;</span></div><div class="line">		<span class="comment">//return (int)(this.height-p.height);这种不行</span></div><div class="line">		<span class="comment">//return -(((Double)this.height).compareTo((Double)p.height));</span></div><div class="line">		</div><div class="line">		<span class="comment">//按照姓名排序</span></div><div class="line">		Person p=(Person)o;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name.compareTo(p.name);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>方式2：外部比较器：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">public class Person &#123;</div><div class="line">	String name;</div><div class="line">	int age;</div><div class="line">	double height;</div><div class="line">	</div><div class="line">	public Person(String name, int age, double height) &#123;</div><div class="line">		super();</div><div class="line">		this.name = name;</div><div class="line">		this.age = age;</div><div class="line">		this.height = height;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public String toString() &#123;</div><div class="line">		return &quot;Person [name=&quot; + name + &quot;, age=&quot; + age + &quot;, height=&quot; + height</div><div class="line">				+ &quot;]&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//按照年龄</div><div class="line">class BiJiao01 implements Comparator&#123;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int compare(Object o1, Object o2) &#123;</div><div class="line">		Person p1=(Person)o1;</div><div class="line">		Person p2=(Person)o2;</div><div class="line">		return p1.age-p2.age;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//按照姓名比较</div><div class="line">class BiJiao02 implements Comparator&#123;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int compare(Object o1, Object o2) &#123;</div><div class="line">		Person p1=(Person)o1;</div><div class="line">		Person p2=(Person)o2;</div><div class="line">		return p1.name.compareTo(p2.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么这哪种比较器好？？ —- 外部</p>
+<p>因为这样耦合性低，代码扩展性好，你要加比较器，或者删比较器，对其余的代码影响最小。</p>
+<h2 id="6-Map-接口"><a href="#6-Map-接口" class="headerlink" title="6. Map 接口"></a>6. Map 接口</h2><p>废话不说，直接上图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-d5b80836ce758850.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Map 详细结构图.png"></p>
+<ul>
+<li>Map 的特点：Map用于保存具有”映射关系”的数据，因此Map集合里保存着两组值，一组值用于保存Map里的key，另外一组值用于保存Map里的value。key和value都可以是任何引用类型的数据。Map的<strong>key不允许重复。</strong></li>
+<li>Map的这些实现类和子接口中key集的存储形式和Set集合完全相同(即key不能重复)。</li>
+<li>Map的这些实现类和子接口中value集的存储形式和List非常类似(即value可以重复、根据索引来查找)。</li>
+</ul>
+<h3 id="6-1-HashMap-类"><a href="#6-1-HashMap-类" class="headerlink" title="6.1 HashMap 类"></a>6.1 HashMap 类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	Map&lt;Integer,String&gt; m=<span class="keyword">new</span> HashMap&lt;Integer,String&gt;();</div><div class="line">	m.put(<span class="number">11</span>, <span class="string">"children"</span>);</div><div class="line">	m.put(<span class="number">33</span>, <span class="string">"fine"</span>);</div><div class="line">	m.put(<span class="number">23</span>, <span class="string">"good"</span>);</div><div class="line">	m.put(<span class="number">88</span>, <span class="string">"best"</span>);</div><div class="line">	System.out.println(m.put(<span class="number">77</span>, <span class="string">"better"</span>));<span class="comment">//null</span></div><div class="line">	System.out.println(m);<span class="comment">//&#123;33=fine, 23=good, 77=better, 11=children, 88=best&#125;</span></div><div class="line">	System.out.println(m.size());<span class="comment">//5</span></div><div class="line">	<span class="comment">//m.remove(11);</span></div><div class="line">	System.out.println(<span class="string">"=========================="</span>);</div><div class="line">	System.out.println(m);<span class="comment">//&#123;33=fine, 23=good, 77=better, 11=children, 88=best&#125;</span></div><div class="line">	System.out.println(m.containsKey(<span class="number">3</span>));<span class="comment">//false</span></div><div class="line">	System.out.println(m.containsValue(<span class="string">"good"</span>));<span class="comment">//true	</span></div><div class="line">	System.out.println(<span class="string">"============遍历1=============="</span>);</div><div class="line">	<span class="comment">//对所有 key进行遍历:</span></div><div class="line">	Set&lt;Integer&gt; ks = m.keySet();</div><div class="line">	<span class="keyword">for</span>(Integer i:ks)&#123;</div><div class="line">		System.out.print(i+<span class="string">"\t"</span>);<span class="comment">//33	23	77	11	88</span></div><div class="line">	&#125;</div><div class="line">	System.out.println();</div><div class="line">	<span class="comment">//对所有的value进行遍历:</span></div><div class="line">	<span class="keyword">for</span>(Integer i:ks)&#123;</div><div class="line">		System.out.print(m.get(i)+<span class="string">"\t"</span>);<span class="comment">//fine	good	better	children	best</span></div><div class="line">	&#125;</div><div class="line">	System.out.println();</div><div class="line">	System.out.println(<span class="string">"============遍历2=============="</span>);</div><div class="line">	<span class="comment">//对所有的value进行遍历</span></div><div class="line">	Collection&lt;String&gt; v = m.values();</div><div class="line">	<span class="keyword">for</span>(String str:v)&#123;</div><div class="line">		System.out.print(str+<span class="string">"\t"</span>);<span class="comment">//fine	good	better	children	best</span></div><div class="line">	&#125;</div><div class="line">	System.out.println();</div><div class="line">	System.out.println(<span class="string">"============遍历3=============="</span>);</div><div class="line">	<span class="keyword">for</span>(Iterator it=v.iterator();it.hasNext();)&#123;</div><div class="line">		System.out.print(it.next()+<span class="string">"\t"</span>);<span class="comment">//fine	good	better	children	best</span></div><div class="line">	&#125;</div><div class="line">	System.out.println();</div><div class="line">	System.out.println(<span class="string">"============遍历4=============="</span>);</div><div class="line">	Set&lt;Entry&lt;Integer, String&gt;&gt; entrySet = m.entrySet();</div><div class="line">	<span class="keyword">for</span> (Entry&lt;Integer, String&gt; entry : entrySet) &#123;</div><div class="line">		System.out.print(entry+<span class="string">"    "</span>);<span class="comment">//33=fine    23=good    77=better    11=children    88=best </span></div><div class="line">	&#125;</div><div class="line">	System.out.println();</div><div class="line">	System.out.println(<span class="string">"=============================="</span>);</div><div class="line">	System.out.print(m.get(<span class="number">33</span>));<span class="comment">//fine</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>标 1 处，<strong>put(K key,V value) 方法</strong>：（1）将指定的值与此映射中的指定键关联（可选操作）。如果此映射以前包含一个该键的映射关系，则用指定值替换旧值。（2）以前与 key 关联的值，如果没有针对 key 的映射关系，则返回 null。</p>
+<p>标 2 处，<strong>entrySet()</strong>方法：此映射中包含的映射关系的 set 视图。</p>
+<h3 id="6-2-TreeMap"><a href="#6-2-TreeMap" class="headerlink" title="6.2 TreeMap"></a>6.2 TreeMap</h3><p>之前的集合都是没有按照从小到大的这种有序进行输出的。</p>
+<p>现在我想按照有序输出，用TreeMap。</p>
+<p>这里还是主要讲述当 Key 值为引用数据类型时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		TreeMap&lt;Person,String&gt;  tm=<span class="keyword">new</span> TreeMap&lt;Person,String&gt;();</div><div class="line">		tm.put(<span class="keyword">new</span> Person(<span class="string">"banana"</span>, <span class="number">18</span>, <span class="number">170.8</span>), <span class="string">"学生1"</span>);</div><div class="line">		tm.put(<span class="keyword">new</span> Person(<span class="string">"coco"</span>, <span class="number">13</span>, <span class="number">160.8</span>), <span class="string">"学生2"</span>);</div><div class="line">		tm.put(<span class="keyword">new</span> Person(<span class="string">"apple"</span>, <span class="number">17</span>, <span class="number">175.8</span>), <span class="string">"学生3"</span>);</div><div class="line">		tm.put(<span class="keyword">new</span> Person(<span class="string">"banana"</span>, <span class="number">18</span>, <span class="number">170.8</span>), <span class="string">"学生4"</span>);</div><div class="line">		tm.put(<span class="keyword">new</span> Person(<span class="string">"demo"</span>, <span class="number">16</span>, <span class="number">150.8</span>), <span class="string">"学生5"</span>);</div><div class="line">		tm.put(<span class="keyword">new</span> Person(<span class="string">"excuse me "</span>, <span class="number">21</span>, <span class="number">180.8</span>), <span class="string">"学生6"</span>);</div><div class="line">		</div><div class="line">		System.out.println(tm);<span class="comment">//&#123;Person [name=coco, age=13, height=160.8]=学生2, Person [name=demo, age=16, height=150.8]=学生5, Person [name=apple, age=17, height=175.8]=学生3, Person [name=banana, age=18, height=170.8]=学生4, Person [name=excuse me , age=21, height=180.8]=学生6&#125;</span></div><div class="line">		System.out.println(tm.size());<span class="comment">//5</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Comparable</span> </span>&#123;</div><div class="line">	String name;</div><div class="line">	<span class="keyword">int</span> age;</div><div class="line">	<span class="keyword">double</span> height;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age, <span class="keyword">double</span> height)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">		<span class="keyword">this</span>.height = height;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Person [name="</span> + name + <span class="string">", age="</span> + age + <span class="string">", height="</span> + height</div><div class="line">				+ <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">		Person p=(Person)o;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.age-p.age;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此处比较的是 age 属性，可以看出来，<strong>TreeMap 是唯一，无序的（没有按照输入输出的顺序，按照大小顺序来输出的）</strong></p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li>Collection 接口下的所有实现类，都可以用迭代器进行遍历。</li>
+<li>HashSet 类是唯一，无序，没有按照输入顺序进行输出；TreeSet 类是唯一，有序（按照从小到大的顺序） 无序（没有按照输入顺序进行输出）；LinkedHashSet 类是唯一，有序。</li>
+<li>ArrayList 类是不唯一，有序，按照输入顺序进行输出；LinkedList 类是不唯一，有序，按照输入顺序进行输出。</li>
+<li>HashMap 类是按照key值唯一、无序的；LinkedHashMap 类 是唯一，有序，按照输入输出顺序进行输出；TreeMap 类是唯一，有序（按照从小到大）。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/04/Java-中的集合/" data-id="cj5o0952u000434yoxuogen76" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/11/简述-Java-中的-IO-流/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          简述 Java 中的 IO 流
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/03/Java-中的-IO-流/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Java 中的 String 类</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/java/" style="font-size: 10px;">java</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/28/spring-简述/">spring 简述</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/09/Java-中线程创建的方式（一）/">Java 中线程创建的方式（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/简述-Java-中的-IO-流/">简述 Java 中的 IO 流</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/04/Java-中的集合/">Java 中的集合</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/03/Java-中的-IO-流/">Java 中的 String 类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
