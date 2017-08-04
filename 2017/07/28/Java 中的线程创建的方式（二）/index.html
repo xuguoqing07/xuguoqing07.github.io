@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java 中的线程创建的方式（二） | Qi&#39;s Bolg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上篇文章中介绍了线程创建的第一种方法，本文主要介绍线程的第二种创建方式，并通过实例带大家理解线程创建的另外一种方法。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 中的线程创建的方式（二）">
+<meta property="og:url" content="http://yoursite.com/2017/07/28/Java 中的线程创建的方式（二）/index.html">
+<meta property="og:site_name" content="Qi&#39;s Bolg">
+<meta property="og:description" content="上篇文章中介绍了线程创建的第一种方法，本文主要介绍线程的第二种创建方式，并通过实例带大家理解线程创建的另外一种方法。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-d40cf08c71514fef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-04T09:22:19.114Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 中的线程创建的方式（二）">
+<meta name="twitter:description" content="上篇文章中介绍了线程创建的第一种方法，本文主要介绍线程的第二种创建方式，并通过实例带大家理解线程创建的另外一种方法。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-d40cf08c71514fef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Qi&#39;s Bolg" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Qi&#39;s Bolg</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java 中的线程创建的方式（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/28/Java 中的线程创建的方式（二）/" class="article-date">
+  <time datetime="2017-07-28T10:32:28.000Z" itemprop="datePublished">2017-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 中的线程创建的方式（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>上篇文章中介绍了线程创建的第一种方法，本文主要介绍线程的第二种创建方式，并通过实例带大家理解线程创建的另外一种方法。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="线程的创建，启动方式二"><a href="#线程的创建，启动方式二" class="headerlink" title="线程的创建，启动方式二"></a>线程的创建，启动方式二</h2><p>线程创建的第二种方法是<strong>实现 Runnable 接口</strong>。<br>先上代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread001</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;<span class="comment">//创建了一个普通的类TestThread001,实现Runnable接口，具备争抢资源的能力，即多线程的能力。</span></div><div class="line"><span class="number">2</span>	<span class="comment">//实现接口后，就要重写里面的抽象方法 run，run 方法里面的内容就是线程体</span></div><div class="line"><span class="number">3</span>	<span class="meta">@Override</span></div><div class="line"><span class="number">4</span>	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="number">5</span>		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=<span class="number">10</span>; i++) &#123;</div><div class="line"><span class="number">6</span>			System.out.println(i);</div><div class="line"><span class="number">7</span>		&#125;	</div><div class="line"><span class="number">8</span>	&#125;</div><div class="line"><span class="number">9</span> &#125;</div><div class="line"><span class="number">10</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"><span class="number">11</span>	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="number">12</span>		TestThread001 tt=<span class="keyword">new</span> TestThread001();<span class="comment">//创建了一个线程对象。		</span></div><div class="line"><span class="number">13</span>        <span class="comment">//tt.start();</span></div><div class="line"><span class="number">14</span>		Thread t=<span class="keyword">new</span> Thread(tt);</div><div class="line"><span class="number">15</span>		t.setName(<span class="string">"线程Test--"</span>);</div><div class="line"><span class="number">16</span>		t.start();</div><div class="line"><span class="number">17</span>		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=<span class="number">10</span>; i++) &#123;</div><div class="line"><span class="number">18</span>			System.out.println(Thread.currentThread().getName()+i);</div><div class="line"><span class="number">19</span>		&#125;</div><div class="line"><span class="number">20</span>	&#125;</div><div class="line"><span class="number">21</span> &#125;</div></pre></td></tr></table></figure></p>
+<p>现在就来解释一下这段代码：</p>
+<p>第 1 至 9 行代码只是表示<strong>创建了一个普通的类 TestThread001，然后该类实现了 Runnable 接口，具备了多线程的能力。和第一种方法类似，实现了 Runnable 接口之后也需要重写 run 方法。</strong></p>
+<p>第 12 行表示创建了一个线程对象 tt，但此时它只是一个普通的对象而已。此时，如果再执行 tt.start() 语句，你就会发现 <strong>tt 根本没有 start() 方法</strong>。但是，<strong>启动一个线程又必须调用它的 start() 方法。</strong>怎么办？</p>
+<p>首先我们要知道的是， start() 方法是属于 Thread 类的，<strong>所以需要根据 Thread 类创建一个对象 t</strong>，调用这个对象的 start() 方法把 tt 线程启动起来。那这个 Thread 对象怎么才能和线程对象联系起来呢？答案就是<strong>通过构造器，</strong>所以就有了第 14 行代码（我应该表达清楚了吧）。然后第 15 行给线程起名字，第 16 行，<strong>调用 t 的 start() 方法启动线程 tt。</strong></p>
+<p>这段代码就是线程创建并启动的第二种标准方法，应该不难理解。</p>
+<p>这段代码的运行结果如下：<br><img src="http://upload-images.jianshu.io/upload_images/5499281-d40cf08c71514fef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果"></p>
+<p>这段代码也表明这两个线程在微观上是交替运行的。</p>
+<p><strong>那么这两种创建线程的方式哪种好呢？</strong><br>答案是第二种方法好，即<strong>实现 Runnable 方法更好。</strong>因为在Java中只能单继承，一个类继承了 Thread 类之后就不能再继承其他的类了，而一个类却可以多实现，实现不同的接口，所以第二种方法比第一种更好。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/28/Java 中的线程创建的方式（二）/" data-id="cj5xoksx30001ckyo6gelfad3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/04/简述网络编程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          简述网络编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/09/Java-中线程创建的方式（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java 中线程创建的方式（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/healthy/">healthy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/healthy/" style="font-size: 10px;">healthy</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/life/" style="font-size: 10px;">life</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/04/简说-JDBC-（小白入门篇）/">简说 JDBC  （小白入门篇）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/没有它，怎么好意思说自己过得挺好/">没有它，怎么好意思说自己过得挺好</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/好久不见，别来无恙/">好久不见，别来无恙</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/简述网络编程/">简述网络编程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/28/Java 中的线程创建的方式（二）/">Java 中的线程创建的方式（二）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 xuguoqing07<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
