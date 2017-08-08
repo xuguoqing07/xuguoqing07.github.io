@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mybatis 报错 Invalid bound statement | Qi&#39;s Bolg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用 eclipse 启动 springmvc + mybatis 的项目，报错信息如下:">
+<meta name="keywords" content="mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis 报错 Invalid bound statement">
+<meta property="og:url" content="http://yoursite.com/2017/08/08/mybatis 报错 Invalid bound statement/index.html">
+<meta property="og:site_name" content="Qi&#39;s Bolg">
+<meta property="og:description" content="用 eclipse 启动 springmvc + mybatis 的项目，报错信息如下:">
+<meta property="og:updated_time" content="2017-08-08T08:04:05.998Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mybatis 报错 Invalid bound statement">
+<meta name="twitter:description" content="用 eclipse 启动 springmvc + mybatis 的项目，报错信息如下:">
+  
+    <link rel="alternate" href="/atom.xml" title="Qi&#39;s Bolg" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Qi&#39;s Bolg</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mybatis 报错 Invalid bound statement" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/08/mybatis 报错 Invalid bound statement/" class="article-date">
+  <time datetime="2017-08-08T07:50:14.000Z" itemprop="datePublished">2017-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mybatis 报错 Invalid bound statement
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>用 eclipse 启动 springmvc + mybatis 的项目，报错信息如下:</strong></p>
+<a id="more"></a>
+<h1 id="一、错误信息"><a href="#一、错误信息" class="headerlink" title="一、错误信息"></a>一、错误信息</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">严重: Servlet.service() <span class="keyword">for</span> servlet [DispatcherServlet] in context with path [/car] threw exception [Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: <span class="function">Invalid bound <span class="title">statement</span> <span class="params">(not found)</span>: com.bjsxt.car.users.dao.ICAdminsDao.login] with root cause</span></div><div class="line"><span class="function">org.apache.ibatis.binding.BindingException: Invalid bound <span class="title">statement</span> <span class="params">(not found)</span>: com.bjsxt.car.users.dao.ICAdminsDao.login</span></div><div class="line"><span class="function">	at org.apache.ibatis.binding.MapperMethod$SqlCommand.&lt;init&gt;<span class="params">(MapperMethod.java:<span class="number">189</span>)</span></span></div><div class="line"><span class="function">	at org.apache.ibatis.binding.MapperMethod.&lt;init&gt;<span class="params">(MapperMethod.java:<span class="number">43</span>)</span></span></div><div class="line"><span class="function">	at org.apache.ibatis.binding.MapperProxy.<span class="title">cachedMapperMethod</span><span class="params">(MapperProxy.java:<span class="number">58</span>)</span></span></div><div class="line"><span class="function">	at org.apache.ibatis.binding.MapperProxy.<span class="title">invoke</span><span class="params">(MapperProxy.java:<span class="number">51</span>)</span></span></div><div class="line"><span class="function">	at com.sun.proxy.$Proxy24.<span class="title">login</span><span class="params">(Unknown Source)</span></span></div><div class="line"><span class="function">	at com.bjsxt.car.users.service.impl.UserServiceImpl.<span class="title">login</span><span class="params">(UserServiceImpl.java:<span class="number">82</span>)</span></span></div><div class="line"><span class="function">	at com.bjsxt.car.controller.AdminsHeadController.<span class="title">login</span><span class="params">(AdminsHeadController.java:<span class="number">88</span>)</span></span></div><div class="line"><span class="function">	at sun.reflect.NativeMethodAccessorImpl.<span class="title">invoke0</span><span class="params">(Native Method)</span></span></div><div class="line"><span class="function">	at sun.reflect.NativeMethodAccessorImpl.<span class="title">invoke</span><span class="params">(Unknown Source)</span></span></div><div class="line"><span class="function">	at sun.reflect.DelegatingMethodAccessorImpl.<span class="title">invoke</span><span class="params">(Unknown Source)</span></span></div><div class="line"><span class="function">	at java.lang.reflect.Method.<span class="title">invoke</span><span class="params">(Unknown Source)</span></span></div><div class="line"><span class="function">	at org.springframework.web.method.support.InvocableHandlerMethod.<span class="title">doInvoke</span><span class="params">(InvocableHandlerMethod.java:<span class="number">221</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.method.support.InvocableHandlerMethod.<span class="title">invokeForRequest</span><span class="params">(InvocableHandlerMethod.java:<span class="number">137</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.<span class="title">invokeAndHandle</span><span class="params">(ServletInvocableHandlerMethod.java:<span class="number">110</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.<span class="title">invokeHandleMethod</span><span class="params">(RequestMappingHandlerAdapter.java:<span class="number">776</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.<span class="title">handleInternal</span><span class="params">(RequestMappingHandlerAdapter.java:<span class="number">705</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.<span class="title">handle</span><span class="params">(AbstractHandlerMethodAdapter.java:<span class="number">85</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.DispatcherServlet.<span class="title">doDispatch</span><span class="params">(DispatcherServlet.java:<span class="number">959</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.DispatcherServlet.<span class="title">doService</span><span class="params">(DispatcherServlet.java:<span class="number">893</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.FrameworkServlet.<span class="title">processRequest</span><span class="params">(FrameworkServlet.java:<span class="number">966</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.FrameworkServlet.<span class="title">doPost</span><span class="params">(FrameworkServlet.java:<span class="number">868</span>)</span></span></div><div class="line"><span class="function">	at javax.servlet.http.HttpServlet.<span class="title">service</span><span class="params">(HttpServlet.java:<span class="number">650</span>)</span></span></div><div class="line"><span class="function">	at org.springframework.web.servlet.FrameworkServlet.<span class="title">service</span><span class="params">(FrameworkServlet.java:<span class="number">842</span>)</span></span></div><div class="line"><span class="function">	at javax.servlet.http.HttpServlet.<span class="title">service</span><span class="params">(HttpServlet.java:<span class="number">731</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.ApplicationFilterChain.<span class="title">internalDoFilter</span><span class="params">(ApplicationFilterChain.java:<span class="number">303</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.ApplicationFilterChain.<span class="title">doFilter</span><span class="params">(ApplicationFilterChain.java:<span class="number">208</span>)</span></span></div><div class="line"><span class="function">	at org.apache.tomcat.websocket.server.WsFilter.<span class="title">doFilter</span><span class="params">(WsFilter.java:<span class="number">52</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.ApplicationFilterChain.<span class="title">internalDoFilter</span><span class="params">(ApplicationFilterChain.java:<span class="number">241</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.ApplicationFilterChain.<span class="title">doFilter</span><span class="params">(ApplicationFilterChain.java:<span class="number">208</span>)</span></span></div><div class="line"><span class="function">	at org.apache.logging.log4j.core.web.Log4jServletFilter.<span class="title">doFilter</span><span class="params">(Log4jServletFilter.java:<span class="number">66</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.ApplicationFilterChain.<span class="title">internalDoFilter</span><span class="params">(ApplicationFilterChain.java:<span class="number">241</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.ApplicationFilterChain.<span class="title">doFilter</span><span class="params">(ApplicationFilterChain.java:<span class="number">208</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.StandardWrapperValve.<span class="title">invoke</span><span class="params">(StandardWrapperValve.java:<span class="number">220</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.StandardContextValve.<span class="title">invoke</span><span class="params">(StandardContextValve.java:<span class="number">122</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.authenticator.AuthenticatorBase.<span class="title">invoke</span><span class="params">(AuthenticatorBase.java:<span class="number">505</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.StandardHostValve.<span class="title">invoke</span><span class="params">(StandardHostValve.java:<span class="number">170</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.valves.ErrorReportValve.<span class="title">invoke</span><span class="params">(ErrorReportValve.java:<span class="number">103</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.valves.AccessLogValve.<span class="title">invoke</span><span class="params">(AccessLogValve.java:<span class="number">957</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.core.StandardEngineValve.<span class="title">invoke</span><span class="params">(StandardEngineValve.java:<span class="number">116</span>)</span></span></div><div class="line"><span class="function">	at org.apache.catalina.connector.CoyoteAdapter.<span class="title">service</span><span class="params">(CoyoteAdapter.java:<span class="number">423</span>)</span></span></div><div class="line"><span class="function">	at org.apache.coyote.http11.AbstractHttp11Processor.<span class="title">process</span><span class="params">(AbstractHttp11Processor.java:<span class="number">1079</span>)</span></span></div><div class="line"><span class="function">	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.<span class="title">process</span><span class="params">(AbstractProtocol.java:<span class="number">620</span>)</span></span></div><div class="line"><span class="function">	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.<span class="title">run</span><span class="params">(JIoEndpoint.java:<span class="number">316</span>)</span></span></div><div class="line"><span class="function">	at java.util.concurrent.ThreadPoolExecutor.<span class="title">runWorker</span><span class="params">(Unknown Source)</span></span></div><div class="line"><span class="function">	at java.util.concurrent.ThreadPoolExecutor$Worker.<span class="title">run</span><span class="params">(Unknown Source)</span></span></div><div class="line"><span class="function">	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.<span class="title">run</span><span class="params">(TaskThread.java:<span class="number">61</span>)</span></span></div><div class="line"><span class="function">	at java.lang.Thread.<span class="title">run</span><span class="params">(Unknown Source)</span></span></div></pre></td></tr></table></figure>
+<h1 id="二、原因分析："><a href="#二、原因分析：" class="headerlink" title="二、原因分析："></a>二、原因分析：</h1><p>copy 了一份 mapper.xml 配置文件，忘记修改里面 mapper 中 namespace 属性的值。</p>
+<h1 id="三、解决办法："><a href="#三、解决办法：" class="headerlink" title="三、解决办法："></a>三、解决办法：</h1><p>原来的 mapper.xml 配置文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE mapper</span></div><div class="line"><span class="meta">  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></div><div class="line"><span class="meta">  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></div><div class="line"><span class="comment">&lt;!-- 要使用Mapper代码,省去Dao的实现类 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.bjsxt.car.users.dao.ICClientDao"</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 添加一条记录 </span></div><div class="line"><span class="comment">		需要返回主键</span></div><div class="line"><span class="comment">	--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"saveOneClient"</span> <span class="attr">parameterType</span>=<span class="string">"com.bjsxt.car.users.pojo.CClient"</span> <span class="attr">keyColumn</span>=<span class="string">"id"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></div><div class="line">		insert into c_client (name, gender, phone, password, profession, idcard, address) </div><div class="line">		values </div><div class="line">		(#&#123;name&#125;,#&#123;gender&#125;,#&#123;phone&#125;,#&#123;password&#125;,#&#123;profession&#125;,#&#123;idcard&#125;,#&#123;address&#125;)</div><div class="line">	<span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"login"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span> <span class="attr">resultType</span>=<span class="string">"com.bjsxt.car.users.pojo.CAdmins"</span>&gt;</span></div><div class="line">		select * from c_admins </div><div class="line">		<span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name != null"</span>&gt;</span></div><div class="line">				and name = #&#123;name&#125;</div><div class="line">			<span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"password != null"</span>&gt;</span></div><div class="line">				and password = #&#123;password&#125;</div><div class="line">			<span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">where</span>&gt;</span> </div><div class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>修改如下，将 mapper 中 namespace 属性的值修改为对应的真正的值：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE mapper</span></div><div class="line"><span class="meta">  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></div><div class="line"><span class="meta">  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></div><div class="line"><span class="comment">&lt;!-- 要使用Mapper代码,省去Dao的实现类 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.bjsxt.car.users.dao.ICAdminsDao"</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 添加一条记录 </span></div><div class="line"><span class="comment">		需要返回主键</span></div><div class="line"><span class="comment">	--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"saveOneClient"</span> <span class="attr">parameterType</span>=<span class="string">"com.bjsxt.car.users.pojo.CClient"</span> <span class="attr">keyColumn</span>=<span class="string">"id"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></div><div class="line">		insert into c_client (name, gender, phone, password, profession, idcard, address) </div><div class="line">		values </div><div class="line">		(#&#123;name&#125;,#&#123;gender&#125;,#&#123;phone&#125;,#&#123;password&#125;,#&#123;profession&#125;,#&#123;idcard&#125;,#&#123;address&#125;)</div><div class="line">	<span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"login"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span> <span class="attr">resultType</span>=<span class="string">"com.bjsxt.car.users.pojo.CAdmins"</span>&gt;</span></div><div class="line">		select * from c_admins </div><div class="line">		<span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name != null"</span>&gt;</span></div><div class="line">				and name = #&#123;name&#125;</div><div class="line">			<span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"password != null"</span>&gt;</span></div><div class="line">				and password = #&#123;password&#125;</div><div class="line">			<span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">where</span>&gt;</span> </div><div class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/08/mybatis 报错 Invalid bound statement/" data-id="cj63au1x60003awyo3dxne05q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/">mybatis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/06/Mysql 使用教程及 Navicat 11 全系列激活（注册机），有图有真相！/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">哈哈</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/healthy/">healthy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/healthy/" style="font-size: 10px;">healthy</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/08/mybatis 报错 Invalid bound statement/">mybatis 报错 Invalid bound statement</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/06/Mysql 使用教程及 Navicat 11 全系列激活（注册机），有图有真相！/">哈哈</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/简说-JDBC-（小白入门篇）/">简说 JDBC  （小白入门篇）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/没有它，怎么好意思说自己过得挺好/">没有它，怎么好意思说自己过得挺好</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/好久不见，别来无恙/">好久不见，别来无恙</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 xuguoqing07<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
