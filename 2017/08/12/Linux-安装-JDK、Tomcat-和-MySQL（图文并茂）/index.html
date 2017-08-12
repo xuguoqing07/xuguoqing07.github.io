@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本文会详细介绍 Windows 上安装虚拟机之后，如何在 Linux 中安装 JDK、Tomcat 和 MySQL 的过程，希望能帮助到你。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 安装 JDK、Tomcat 和 MySQL（图文并茂）">
+<meta property="og:url" content="http://yoursite.com/2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/index.html">
+<meta property="og:site_name" content="Qi&#39;s Bolg">
+<meta property="og:description" content="本文会详细介绍 Windows 上安装虚拟机之后，如何在 Linux 中安装 JDK、Tomcat 和 MySQL 的过程，希望能帮助到你。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-af966d161db5f6c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-a408a56251a5a985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-9e6199bc64cb56b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-af266f7ec942e324.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-64bfe9cc05c47d81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-24dae600395fbcb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-18cbc56aa255199e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-a22257aa7a933950.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-77d862b3901507b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-a17fdaeca97cf973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-7792277c62b2d71d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-0a4f907b7fa1bea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-6a39d49cdde04c1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-249a8fecce043e35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-12T03:30:43.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 安装 JDK、Tomcat 和 MySQL（图文并茂）">
+<meta name="twitter:description" content="本文会详细介绍 Windows 上安装虚拟机之后，如何在 Linux 中安装 JDK、Tomcat 和 MySQL 的过程，希望能帮助到你。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-af966d161db5f6c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/"/>
+
+
+
+
+
+  <title>Linux 安装 JDK、Tomcat 和 MySQL（图文并茂） | Qi's Bolg</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qi's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuguoqing07">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qi's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux 安装 JDK、Tomcat 和 MySQL（图文并茂）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-12T11:21:14+08:00">
+                2017-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/" class="leancloud_visitors" data-flag-title="Linux 安装 JDK、Tomcat 和 MySQL（图文并茂）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文会详细介绍 Windows 上安装虚拟机之后，如何在 Linux 中安装 JDK、Tomcat 和 MySQL 的过程，希望能帮助到你。</p>
+</blockquote>
+<a id="more"></a>
+<p>首先，这些安装都是在 xshell 中运行的，什么，没有 xshell？好吧，<a href="http://pan.baidu.com/s/1jI5jVMm" target="_blank" rel="external">我给你资源。</a>安装之后里面就会有 xshell，直接打开用就行了。</p>
+<h1 id="1-安装-JDK"><a href="#1-安装-JDK" class="headerlink" title="1. 安装 JDK"></a>1. 安装 JDK</h1><p>个人建议安装的时候使用 rpm 包，Linux 中的 rpm 相当于 Windows 中的 exe，使用本文的安装方法无需手动设置环境变量。</p>
+<p>在这里给大家提供一份 <a href="http://pan.baidu.com/s/1jHXZWRs" target="_blank" rel="external">JDK-8 的资源</a>。</p>
+<h2 id="1-1-将本地的-JDK-文件上传到服务器（Linux）中"><a href="#1-1-将本地的-JDK-文件上传到服务器（Linux）中" class="headerlink" title="1.1 将本地的 JDK 文件上传到服务器（Linux）中"></a>1.1 将本地的 JDK 文件上传到服务器（Linux）中</h2><p>很多人会使用 xftp 直接拖动到 Linux 中，虽然能够达到同样的效果，但这是菜鸟的做法，今天就来使用另外一种方法，相当粗暴：敲命令。</p>
+<p>敲命令会借助于一个软件，以后安装软件优先使用 yum。yum 将 Linux 一些流行的包，放到国内一些比较快的服务器上，它下载的是 rpm 格式的安装包，并且安装。</p>
+<p>好了，先来安装一下这个软件，命令：yum -y install lrzsz;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-af966d161db5f6c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>使用文件上传命令：rz -y;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-a408a56251a5a985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>会弹出一个对话框，选择 JDK 的安装包就行了。</p>
+<h2 id="1-2-拿到-rpm-包"><a href="#1-2-拿到-rpm-包" class="headerlink" title="1.2 拿到 rpm 包"></a>1.2 拿到 rpm 包</h2><p>使用命令：yum -y install jdk-8u141-linux-x64.rpm;</p>
+<p>之后稍等片刻就可以安装成功了，这种方法不需要配置环境变量。装完之后要养成一个习惯，测试环境变量好不好使：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-9e6199bc64cb56b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h1 id="2-安装-Tomcat"><a href="#2-安装-Tomcat" class="headerlink" title="2. 安装 Tomcat"></a>2. 安装 Tomcat</h1><h2 id="2-1-Tomcat-安装包放进-Linux-中"><a href="#2-1-Tomcat-安装包放进-Linux-中" class="headerlink" title="2.1 Tomcat 安装包放进 Linux 中"></a>2.1 Tomcat 安装包放进 Linux 中</h2><p>可以使用命令行，在这里为了省事儿就不用命令了，直接使用 xftp 拖动到 Linux 中（见谅见谅）。<a href="http://pan.baidu.com/s/1nuZVI3n" target="_blank" rel="external">这里给一份 Tomcat 的资源。</a></p>
+<p>（各种资源，怎么样，我还不错吧，哈哈）</p>
+<p>建议将自己需要解压的软件都放到 /data 目录下面，如果没有这个目录，可以直接在根目录下创建该目录，创建该目录的命令：mkdir /data</p>
+<p>进入到/data目录中，将 Tomcat 的压缩包复制(剪切到) /data 目录中：<br><img src="http://upload-images.jianshu.io/upload_images/5499281-af266f7ec942e324.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="2-2-解压-Tomcat-的压缩包"><a href="#2-2-解压-Tomcat-的压缩包" class="headerlink" title="2.2 解压 Tomcat 的压缩包"></a>2.2 解压 Tomcat 的压缩包</h2><p>使用命令：tar -xzvf apache-tomcat-8.0.45.tar.gz</p>
+<p>其中：<br>X：代表释放(解压)；<br>V：代表显示解压的过程；<br>Z：代表这是不是一个压缩包，一般来说结尾是 gz 都代表是压缩过的包；<br>F：表示递归解压；</p>
+<p>当然你也可以选择修改 Tomcat 的名字，命令：mv（此处有空格）apache-tomcat-8.0.45（此处也有空格）tomcat_test_1</p>
+<p>启动 Tomcat：不管写的是相对路径还是绝对路径,都要指定运行 startup.sh</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-64bfe9cc05c47d81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="2-3-查看-Tomcat-有木有启动"><a href="#2-3-查看-Tomcat-有木有启动" class="headerlink" title="2.3 查看 Tomcat 有木有启动"></a>2.3 查看 Tomcat 有木有启动</h2><p>有人会有疑问，Tomcat 有没有启动你自己还不造吗，有的时候 Tomcat 端口被占用，就会启动失败。</p>
+<p>查看是否启动命令：ps aux|grep tomcat</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-24dae600395fbcb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片7.png"></p>
+<p>然后看一下 Tomcat 路径和它的端口号，如上图红框所示。</p>
+<p>当你的 Tomcat 打开之后，欣喜若狂的在浏览器中输入你的虚拟机 ip 地址加 8080 访问三条腿的猫（Tomcat 图标）时，就会发现，等到天亮猫也不会出现，不是猫丢了，而是它在你的电脑的路上被伟大的防火墙挡住了。</p>
+<p>所以还差一步，停掉防火墙。</p>
+<h2 id="2-4-停掉防火墙"><a href="#2-4-停掉防火墙" class="headerlink" title="2.4 停掉防火墙"></a>2.4 停掉防火墙</h2><p>命令：service iptables stop<br><img src="http://upload-images.jianshu.io/upload_images/5499281-18cbc56aa255199e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>然后再在浏览器里输入虚拟机的 ip 地址加 8080 就可以看到 Tomcat 的标识了：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-a22257aa7a933950.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h1 id="3-安装最新版本的-mysql-5-7"><a href="#3-安装最新版本的-mysql-5-7" class="headerlink" title="3. 安装最新版本的 mysql 5.7"></a>3. 安装最新版本的 mysql 5.7</h1><p>在 MySQL 的官网上，有一个链接：<a href="https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/" target="_blank" rel="external">A Quick Guide to Using the MySQL Yum Repository</a>。</p>
+<p>现在，我按照这个地址，给大家走一下安装流程。</p>
+<h2 id="3-1-创建-yum-源"><a href="#3-1-创建-yum-源" class="headerlink" title="3.1 创建 yum 源"></a>3.1 创建 yum 源</h2><p>创建 yum 源，文件名随便起，但是官网建议命名为 mysql-community.repo，所以就新建一个该文件，扩展名为 repo，文件内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[mysql57-community]</div><div class="line">name=MySQL 5.7 Community Server</div><div class="line">baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/</div><div class="line">enabled=1</div><div class="line">gpgcheck=0</div><div class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</div></pre></td></tr></table></figure></p>
+<p>将这个文件上传到 /etc/yum.repos.d/ 中。</p>
+<p>然后使用命令：yum search mysql，会发现最下面多出一行：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-77d862b3901507b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="3-2-安装-mysql"><a href="#3-2-安装-mysql" class="headerlink" title="3.2 安装 mysql"></a>3.2 安装 mysql</h2><p>使用命令：yum install mysql-community-server</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-a17fdaeca97cf973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="3-3-重启-mysql"><a href="#3-3-重启-mysql" class="headerlink" title="3.3 重启 mysql"></a>3.3 重启 mysql</h2><p>使用命令：service mysqld restart</p>
+<h2 id="3-4-查看登录密码"><a href="#3-4-查看登录密码" class="headerlink" title="3.4 查看登录密码"></a>3.4 查看登录密码</h2><p><img src="http://upload-images.jianshu.io/upload_images/5499281-7792277c62b2d71d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-0a4f907b7fa1bea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>此密码是临时密码，只能使用一次，使用改密码登陆 mysql 客户端。</p>
+<h2 id="3-5-登陆-mysql-客户端"><a href="#3-5-登陆-mysql-客户端" class="headerlink" title="3.5 登陆 mysql 客户端"></a>3.5 登陆 mysql 客户端</h2><p>使用命令：mysql -u root -p</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-6a39d49cdde04c1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>登陆成功以后，第一件事当然是改密码啦，哈哈。</p>
+<p>官网提供了修改密码的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;MyNewPass4!&apos;;</div></pre></td></tr></table></figure></p>
+<p>但是呢，这个密码也很难记啊，如果想改成简单的密码，比如说将<br> MyNewPass4! 换成 123456，这样的密码多好记，然后运行就会发现，它不让你改，因为过于简单不符合它的命名规则。</p>
+<p>所以，首先按照上面官网提供的命令成功登录 MySQL ，然后卸载 mysql<br> 密码的插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uninstall plugin validate_password;</div></pre></td></tr></table></figure></p>
+<p>然后再修改密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123456&apos;;</div></pre></td></tr></table></figure></p>
+<p>键入 exit 退出客户端，再使用新密码登录。</p>
+<p>默认账号使用本地使用，不同的电脑不让使用，比如说，你在 Windows 里用 Navicat 连接该 MySQL 数据库是不可以的。</p>
+<p>怎么样才可以呢？重新创建一个账号，允许远程链接，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos;identified by &apos;123456&apos; with grant option;</div></pre></td></tr></table></figure></p>
+<p>然后再在 Windows 下使用 Navicat 就可以连接上该数据库了。</p>
+<h2 id="3-6-修改默认的编码"><a href="#3-6-修改默认的编码" class="headerlink" title="3.6 修改默认的编码"></a>3.6 修改默认的编码</h2><p>使用 Navicat 就可以连接数据库之后默认的编码格式是拉丁文，所以要修改默认的编码格式。</p>
+<p>修改配置文件 /etc/my.cnf，<strong>再改文件的时候，养成一个习惯，先备份一份在修改。</strong></p>
+<p>使用 vi  /etc/my.cnf，然后找到 mysqld，增加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">character_set_server=utf8</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-249a8fecce043e35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>然后重启mysql服务就可以了，使用命令：service mysqld restart</p>
+<p><strong>以上就是详细的安装过程希望能帮助到你，欢迎收藏加关注。</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/08/mybatis 报错 Invalid bound statement/" rel="next" title="mybatis 报错 Invalid bound statement">
+                <i class="fa fa-chevron-left"></i> mybatis 报错 Invalid bound statement
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png"
+               alt="xuguoqing07" />
+          <p class="site-author-name" itemprop="name">xuguoqing07</p>
+           
+              <p class="site-description motion-element" itemprop="description">Love football,love life and love you more.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xuguoqing07" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/?lang=zh-cn" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3378285750/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装-JDK"><span class="nav-number">1.</span> <span class="nav-text">1. 安装 JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-将本地的-JDK-文件上传到服务器（Linux）中"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 将本地的 JDK 文件上传到服务器（Linux）中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-拿到-rpm-包"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 拿到 rpm 包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装-Tomcat"><span class="nav-number">2.</span> <span class="nav-text">2. 安装 Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Tomcat-安装包放进-Linux-中"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Tomcat 安装包放进 Linux 中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-解压-Tomcat-的压缩包"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 解压 Tomcat 的压缩包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-查看-Tomcat-有木有启动"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 查看 Tomcat 有木有启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-停掉防火墙"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 停掉防火墙</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-安装最新版本的-mysql-5-7"><span class="nav-number">3.</span> <span class="nav-text">3. 安装最新版本的 mysql 5.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-创建-yum-源"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 创建 yum 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-安装-mysql"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 安装 mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-重启-mysql"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 重启 mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-查看登录密码"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 查看登录密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-登陆-mysql-客户端"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 登陆 mysql 客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-修改默认的编码"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 修改默认的编码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuguoqing07</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://disqus_XR5Ik7kh7c.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/';
+          this.page.identifier = '2017/08/12/Linux-安装-JDK、Tomcat-和-MySQL（图文并茂）/';
+          this.page.title = 'Linux 安装 JDK、Tomcat 和 MySQL（图文并茂）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://disqus_XR5Ik7kh7c.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("mgNX84iBlXxnOFQemmEj5I4y-gzGzoHsz", "dTrei5TRjiXzayDDoj60gujH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
