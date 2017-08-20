@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Java 面试常见问题整理。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 面试常见问题整理">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/Java-面试常见问题整理/index.html">
+<meta property="og:site_name" content="Qi&#39;s Blog">
+<meta property="og:description" content="Java 面试常见问题整理。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-f9ab73180899374e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-20T06:57:18.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 面试常见问题整理">
+<meta name="twitter:description" content="Java 面试常见问题整理。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-f9ab73180899374e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/20/Java-面试常见问题整理/"/>
+
+
+
+
+
+  <title>Java 面试常见问题整理 | Qi's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qi's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/Java-面试常见问题整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuguoqing07">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qi's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 面试常见问题整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T14:44:33+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/20/Java-面试常见问题整理/" class="leancloud_visitors" data-flag-title="Java 面试常见问题整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Java 面试常见问题整理。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-f9ab73180899374e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><ol>
+<li>重写和重载的区别</li>
+<li>接口和抽象类的区别，各有什么特点</li>
+<li>谈谈 final， finally， finalize 的区别。</li>
+<li>Anonymous Inner Class(匿名内部类) 是否可以 extends(继承) 其它类<br>，是否可以 implements (实现) interface (接口)?</li>
+<li>Static Nested Class 和 Inner Class 的不同，说得越多越好(面试题有<br>的很笼统)。</li>
+<li>&amp; 和 &amp;&amp; 的区别。</li>
+<li>HashMap 和 Hashtable 的区别。</li>
+<li>Collection 和 Collections的区别。</li>
+<li>什么时候用 assert。</li>
+<li>GC 是什么? 为什么要有 GC?</li>
+<li>String s = new String ( “xyz” )；创建了几个 String Object?</li>
+<li>Math.round(11.5) 等于多少? Math.round(-11.5) 等于多少?</li>
+<li>short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有<br>什么错?</li>
+<li>sleep() 和 wait() 有什么区别?</li>
+<li><a href="http://lib.csdn.net/base/java" target="_blank" rel="external">Java</a> 有没有 goto?</li>
+<li>数组有没有 length()这个方法? String 有没有 length()这个方法?</li>
+<li>Overload 和 Override 的区别。Overloaded 的方法是否可以改变返回值<br>的类型?</li>
+<li>Set 里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用 == 还是<br>equals()? 它们有何区别?</li>
+<li>给我一个你最常见到的 runtime exception。</li>
+<li>error 和 exception 有什么区别?</li>
+<li>List，Set， Map 是否继承自 Collection 接口?</li>
+<li>abstract class 和 interface 有什么区别?</li>
+<li>abstract 的 method 是否可同时是 static,是否可同时是 native，是否<br>可同时是 synchronized?</li>
+<li>接口是否可继承接口? 抽象类是否可实现 (implements) 接口? 抽象<br>类是否可继承实体类 (concrete class)?</li>
+<li>启动一个线程是用 run()还是 start()?</li>
+<li>构造器 Constructor 是否可被 override?</li>
+<li>是否可以继承 String 类?</li>
+<li>当一个线程进入一个对象的一个synchronized方法后，其它线程是<br>否可进入此对象的其它方法?</li>
+<li>try {}里有一个return语句，那么紧跟在这个try后的finally {}里<br>的code会不会被执行，什么时候被执行，在return前还是后?</li>
+<li>编程题: 用最有效率的方法算出2乘以8等於几?</li>
+<li>两个对象值相同(x.equals(y) == true)，但却可有不同的hash<br>code，这句话对不对?</li>
+<li>当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的<br>属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</li>
+<li>swtich是否能作用在byte上，是否能作用在long上，是否能作用在<br>String上?</li>
+<li>编程题: 写一个Singleton出来。<br>##答案：</li>
+<li>重写和重载的区别<br>重写首先要求子类继承父类，子类重写父类的方法。可以概括为<strong>两同两小一大</strong>：<br>两同：方法名相同，形参列表相同；<br>两小：子类方法返回值类型应比父类方法返回值类型更小或相等，子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等。<br>一大：子类方法的访问权限应比父类方法的访问权限更大或相等。<br>重载有两种形式，一种是普通方法的重载，另一种是构造方法的重载。<br>普通方法的重载：（1）方法名相同：完成相同的功能；<br>（2）参数列表不同：参数个数、参数类型、参数顺序；<br>（3）形参名不同、返回值类型不同不影响方法的加载。<br>构造方法的重载：（1）一个类可以有多个构造方法；构造方法可以重载；（2）建议：如果定义了有参构造，也加一个无参构造方法；<br>（3）一个类里至少有一个构造方法。（如果没有显式定义任何构造方法，系统会分配一个默认无参的构造方法）</li>
+<li><p>接口和抽象类的区别，各有什么特点<br><strong>抽象类</strong>：<br>（1）抽象方法：public abstract void shout();只有方法声明，没有方法体；<br>（2）如果类里有抽象方法了，类必须声明为抽象类；public abstract class Animal {…}<br>抽象类特点：<br>(1) 抽象类不能生成它本身类型的对象；是不完整的类设计图。<br>(2) 抽象类用来被继承；Animal an=new Dog();<br>(3) 抽象类可以有成员变量，成员方法，构造方法等和具体类相同的成员；抽象类可以有0个和多个抽象方法。<br>(4) 抽象类被继承，语义：is-a,子类是一种父类；<br>(5) 子类<br>1)实现抽象类的方法；<br>2)继续声明为抽象方法，同时子类也声明为抽象类。<br><strong>接口包含</strong>：<br>Field（只能是常量）<br>方法（只能是抽象方法）<br>内部类（包括内部接口、枚举）<br>接口里不包含构造方法<br>接口特点：<br>（1）接口里所有成员都是public访问权限。<br>（2）接口里的常量 Field 是使用public static final修饰符来修饰，不管定义时是否指定。<br>（3）接口里的方法是自动使用public abstract修饰符修饰，不管定义方法时是否指定。<br>（4）接口里的内部类（接口、枚举类）是自动使用public static修饰符修饰，不管定义时是否指定。<br>（5）接口不能用于创建实例，其主要用途是被实现类实现。实现使用implements关键字<br>（6）一个类能实现多个接口<br>（7）一个类能同时继承类有实现接口（先extends再implements）<br>（8）接口能继承接口<br>（9）接口能继承多个接口<br><strong>抽象类和接口的比较：</strong><br>相同点：<br>（1）接口和抽象类都不能被实例化，它们都用于被其他类实现或继承。<br>（2）接口和抽象类都可以包含抽象方法，实现接口或继承抽象类的普通子类都必须实现这些抽象方法。<br>不同点：<br>（1）接口里只能包含抽象方法，而抽象类既可以抽象方法也可以包含普通方法，还可以没有抽象方法。<br>（2）接口里不能定义静态方法（因为全部是抽象方法），抽象类里可以定义静态方法。<br>（3）接口里只能定义静态常量 Field，而抽象类既可以定义普通 Field，也可以定义静态常量 Field。<br>（4）接口里不包含构造方法，而抽象类里完全可以包含。<br>（5）一个类最多只能有一个直接父类，但却可以直接实现多个接口（弥补Java单继承的不足）</p>
+</li>
+<li><p>谈谈final， finally， finalize 的区别。<br><strong>final</strong> — 修饰符（关键字）如果一个类被声明为 final，<strong>意味着它不能再派生出新的子类，不能作为父类被继承</strong>。因此一个类不能既被声明为 abstract 的，又被声明为 final 的。将变量或方法声明为 final，可以保证它们在使用中不被改变。<strong>被声明为 final 的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改</strong>。被声明为 final 的方法也同样只能使用，不能重载。<br><strong>finally</strong> — 在异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会执行，然后控制就会进入 finally 块（如果有的话）。<br><strong>finalize</strong> — 方法名。Java 技术允许使用 finalize() 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对象之前对这个对象调用的。</p>
+</li>
+<li>Anonymous Inner Class (匿名内部类) 是否可以 extends(继承) 其它类，是否可以 implements(实现) interface(接口)？<br>匿名的内部类是没有名字的内部类。不能 extends(继承) 其它类，但一个内部类可以作为一个接口，由另一个内部类实现。</li>
+<li>Static Nested Class 和 Inner Class的不同，说得越多越好(面试题有的很笼统)。Nested Class （一般是 C++ 的说法），Inner Class (一般是<br>java 的说法)。Java 内部类与 C++ 嵌套类最大的不同就在于是否有指向外部的引用上。具体可见 http: //www.frontfree<a href="http://lib.csdn.net/base/dotnet" target="_blank" rel="external">.NET</a>/articles/services/view.asp?id=704&amp;page=1<br>注：静态内部类（Inner Class）意味着：创建一个static内部类的对象，不需要一个外部类对象；不能从一个 static 内部类的一个对象访问一个外部类对象</li>
+<li>&amp; 和 &amp;&amp; 的区别。<br>&amp; 是位运算符，&amp;&amp; 是布尔逻辑运算符。&amp; 和 &amp;&amp; 都是「与」运算符，运算规则相同，<strong>区别在于若 &amp;&amp; 左边为 false，则不计算右边，整个表达式就是 false，而 &amp; 两边不论怎样都要计算。</strong></li>
+<li>HashMap 和 Hashtable 的区别。<br>都属于 Map 接口的类，实现了将唯一键映射到特定的值上。HashMap 类没有分类或者排序，它允许一个 null 键和多个 null 值。Hashtable 类似于 HashMap，但是不允许 null 键和 null 值，它也比 HashMap 慢，因为它是同步的。<strong>Hashtable: 效率低，线程安全；HashMap: 效率高，线程不安全。</strong></li>
+<li>Collection 和 Collections 的区别。Collections 是个 java.util 下的类，它包含有各种有关集合操作的静态方法。Collection 是个 java.util 下的接口，它是各种集合结构的父接口。</li>
+<li>什么时候用 assert。断言是一个包含布尔表达式的语句，在执行这个语句时假定该表达式为 true。如果表达式计算为 false，那么系统会报告一个 AssertionError。它用于调试目的：assert(a &gt; 0); // throws an AssertionError if a &lt;= 0断言可以有两种形式： assert Expression1 ;assert Expression1 : Expression2 ;Expression1 应该总是产生一个布尔值。Expression2 可以是得出一个值的任意表达式。这个值用于生成显示更多调试信息的 String 消息。断言在默认情况下是禁用的。要在编译时启用断言，需要使用 source 1.4 标记： javac -source 1.4 Test.java要在运行时启用断言，可使用 -enableassertions 或者 -ea 标记。要在运行时选择禁用断言，可使用 -da 或者 -disableassertions 标记。要系统类中启用断言，可使用 -esa 或者 -dsa 标记。还可以在包的基础上启用或者禁用断言。可以在预计正常情况下不会到达的任何位置上放置断言。断言可以用于验证传递给私有方法的参数。不过，断言不应该用于验证传递给公有方法的参数，因为不管是否启用了断言，公有方法都必须检查其参数。不过，既可以在公有方法中，也可以在非公有方法中利用断言<a href="http://lib.csdn.net/base/softwaretest" target="_blank" rel="external">测试</a>后置条件。另外，断言不应该以任何方式改变程序的状态。</li>
+<li>GC 是什么? 为什么要有 GC? (基础题)。<br>GC 是垃圾收集器。Java 程序员不用担心内存管理，因为垃圾收集器会自动进行管理。要请求垃圾收集，可以调用下面的方法之一：System.gc()Runtime.getRuntime().gc()</li>
+<li>String s = new String(“xyz”)；创建了几个String Object？<br>两个对象，一个是 “xyx”，一个是指向 “xyx” 的引用对象 s。（建议看一下我之前写的关于 <a href="http://www.jianshu.com/p/1c5fee1ea195" target="_blank" rel="external">java 中的 string 类</a>的文章）</li>
+<li>Math.round(11.5) 等于多少? Math.round(-11.5) 等于多少？<br>Math.round(11.5) 返回（long）12，Math.round(-11.5)返回（long）-11;</li>
+<li>short s1 = 1；s1 = s1 + 1；有什么错? short s1 = 1； s1 + = 1；有什么错？<br>short s1 = 1; s1 = s1 + 1; 有错，s1 是 short 型，s1+1 是 int 型，不能显式转化为 short 型，可修改为 s1 =(short)(s1 + 1) 。<br>short s1 = 1; s1 += 1正确，它表示先计算 s1 + 1，然后再强转为 short 型。</li>
+<li>sleep() 和 wait() 有什么区别？<br>sleep() 方法是使线程停止一段时间的方法。<strong>在 sleep 时间间隔期满后，线程不一定立即恢复执行</strong>，这是因为在那个时刻，其它线程可能正在运行而且没有被调度为放弃执行，除非 “醒来” 的线程具有更高的优先级或者正在运行的线程因为其它原因而阻塞。wait() 是线程交互时，如果线程对一个同步对象 x 发出一个wait()调用，该线程会暂停执行，被调对象进入等待状态，直到被唤醒或等待时间到。</li>
+<li>Java 有没有 goto？<br>Goto – java 中的保留字，现在没有在java中使用。</li>
+<li>数组有没有 length() 这个方法？ String 有没有 length() 这个方法？<br>数组没有 length() 这个方法，有 length 的属性。String 有 length() 这个方法。</li>
+<li>Overload 和 Override 的区别。Overload 的方法是否可以改变返回值的类型？<br>方法的重写（Overriding）和重载（Overloading）是 Java 多态性的不同表现。重写Overriding是父类与子类之间多态性的一种表现，重载Overload 是一个类中多态性的一种表现。<br><strong>子类重写父类的方法要求</strong>：方法名相同，形参列表相同；子类方法返回值类型应比父类方法返回值类型更小或相等，子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等；子类方法的访问权限应比父类方法的访问权限更大或相等。<br><strong>重载的要求：</strong>方法名相同：完成相同的功能；参数列表不同：参数个数、参数类型、参数顺序；另外，形参名不同、返回值类型不同不影响方法的加载。<br>Overload 的方法是可以改变返回值的类型。</li>
+<li><p>Set 里的元素是不能重复的，那么用什么方法来区分重复与否呢？ 是用 == 还是 equals()？它们有何区别？<br>Set 里的元素是不能重复的，那么用 iterator() 方法来区分重复与否。equals()是判读两个 Set 是否相等。equals() 和 == 方法决定引用值是否指向同一对象，equals() 在类中被覆盖，为的是当两个分离的对象的内容和类型相配的话，返回真值。</p>
+</li>
+<li><p>给我一个你最常见到的runtime exception。<br>ArithmeticException, ArrayStoreException, BufferOverflowException, BufferUnderflowException, CannotRedoException, CannotUndoException, ClassCastException, CMMException, ConcurrentModificationException, DOMException, EmptyStackException, IllegalArgumentException, IllegalMonitorStateException, IllegalPathStateException, IllegalStateException,ImagingOpException, IndexOutOfBoundsException, MissingResourceException, NegativeArraySizeException, NoSuchElementException, NullPointerException, ProfileDataException, ProviderException, RasterFormatException, SecurityException, SystemException, UndeclaredThrowableException, UnmodifiableSetException, UnsupportedOperationException</p>
+</li>
+<li>error 和 exception 有什么区别？<br>error 表示恢复不是不可能但很困难的情况下的一种严重问题，比如说内存溢出。不可能指望程序能处理这样的情况。<br>exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。</li>
+<li>List，Set， Map 是否继承自 Collection 接口？<br>List，Set是继承自 Collection 接口，Map不是。</li>
+<li>abstract class 和 interface 有什么区别？<br>声明方法的存在而不去实现它的类被叫做抽象类（abstract class），它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。<strong>不能创建abstract 类的实例</strong>。然而可以创建一个变量，其类型是一个抽象类，并让它指向具体子类的一个实例。<strong>不能有抽象构造函数或抽象静态方法。Abstract 类的子类为它们父类中的所有抽象方法提供实现，即在子类中实现抽象方法</strong>。<br>接口（interface）是抽象类的变体。在接口中，所有方法都是抽象的。多继承性可通过实现这样的接口而获得。接口中的所有方法都是抽象的，没有一个有程序体。<strong>接口只能定义 static final 成员变量</strong>。接口的实现与子类相似，除了该实现类不能从接口定义中继承行为。<strong>当类实现特殊接口时，该类要重写接口中的方法。然后，它可以在实现了该接口的类的任何对象上调用接口的方法。</strong>由于有抽象类，它允许使用接口名作为引用变量的类型。引用可以转换到接口类型或从接口类型转换，<strong>instanceof 运算符可以用来决定某对象的类是否实现了接口。</strong></li>
+<li>abstract 的 method 是否可同时是 static，是否可同时是 native，是否可同时是 synchronized?<br><strong>都不能</strong></li>
+<li>接口是否可继承接口？ 抽象类是否可实现(implements)接口？抽象类是否可继承实体类(concrete class)？<br><strong>接口可以继承接口。抽象类可以实现(implements)接口，抽象类可继承实体类，但前提是实体类必须有明确的构造函数。</strong></li>
+<li>启动一个线程是用 run() 还是 start()？<br><strong>启动一个线程是调用 start() 方法</strong>，使线程所代表的虚拟处理机处于可运行状态，这意味着它可以由 JVM 调度并执行。这并不意味着线程就会立即运行。</li>
+<li>构造器 Constructor 是否可被 override？<br><strong>构造器 Constructor 不能被继承，因此不能重写 Override，但可以被重载 Overload。</strong></li>
+<li>是否可以继承 String 类？<br><strong>String 类是 final 类故不可以继承。</strong></li>
+<li>当一个线程进入一个对象的一个 synchronized 方法后，其它线程是否可进入此对象的其它方法？<br>不能，一个对象的一个 synchronized 方法只能由一个线程访问。</li>
+<li>try{} 里有一个 return 语句，那么紧跟在这个 try 后的 finally{} 里的<br>code 会不会被执行，什么时候被执行，在return前还是后?<br><strong>会执行，在return前执行。</strong></li>
+<li>编程题: 用最有效率的方法算出 2 乘以 8 等于几?<br><strong>2 &lt;&lt; 3</strong></li>
+<li>两个对象值相同(x.equals(y) == true)，但却可有不同的 hashcode，这句话对不对?<br><strong>不对，有相同的 hashcode。</strong></li>
+<li>当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递？<br>是<strong>值传递，Java 编程语言只由值传递参数。当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。对象的内容可以在被调用的方法中改变，但对象的引用是永远不会改变的。也就是说，java 中的一切传递都是值传递。</strong></li>
+<li>swtich 是否能作用在 byte 上，是否能作用在 long 上，是否能作用在<br>String 上？<br>switch（expr1）中，expr1是一个整数表达式。因此传递给 switch 和 case 语句的参数应该是 int、 short、 char 或者 byte。<strong>long，string 都不能作用于swtich。</strong></li>
+<li>编程题: <strong>写一个 Singleton 出来。</strong><br>Singleton 模式主要作用是保证在 Java 应用程序中，一个类 Class 只有一个实例存在。一般 Singleton 模式通常有几种种形式：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">//这个方法比上面有所改进，不用每次都进行生成对象，只是第一次</span></div><div class="line">  <span class="comment">//使用时生成实例，提高了效率！</span></div><div class="line">  <span class="keyword">if</span> (instance==<span class="keyword">null</span>)&#123;</div><div class="line">    instance＝<span class="keyword">new</span> Singleton();</div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>Hashtable 和 HashMap：</strong><br>Hashtable 继承自 Dictionary 类，而 HashMap 是 Java1.2 引进的 Map interface 的一个实现。HashMap 允许将 null 作为一个 entry 的 key 或者<br> value，而Hashtable不允许。还有就是，HashMap 把 Hashtable 的contains 方法去掉了，改成 containsvalue 和 containsKey。因为 contains方法容易让人引起误解。<br>最大的不同是，Hashtable 的方法是 Synchronize 的，而 HashMap 不是，在多个线程访问 Hashtable 时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。Hashtable 和 HashMap 采用的hash/rehash<a href="http://lib.csdn.net/base/datastructure" target="_blank" rel="external">算法</a>都大概一样，所以性能不会有很大的差异。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/14/I'm Working It Out/" rel="next" title="I'm Working It Out">
+                <i class="fa fa-chevron-left"></i> I'm Working It Out
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk0Mi81NTEx"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png"
+               alt="xuguoqing07" />
+          <p class="site-author-name" itemprop="name">xuguoqing07</p>
+           
+              <p class="site-description motion-element" itemprop="description">Love football,love life and love you more.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xuguoqing07" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/?lang=zh-cn" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3378285750/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuguoqing07</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("mgNX84iBlXxnOFQemmEj5I4y-gzGzoHsz", "dTrei5TRjiXzayDDoj60gujH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
