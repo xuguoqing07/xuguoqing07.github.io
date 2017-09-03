@@ -94,19 +94,27 @@
 
 
 
-<meta name="description" content="照顾好自己，如果尚有余力，记得保护美好的东西不畏不惧不怂不退不磨叽。">
+<meta name="description" content="简单介绍 solr，然后详细描述了 solr 的安装过程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="没有它，怎么好意思说自己过得挺好">
-<meta property="og:url" content="http://yoursite.com/2017/08/04/没有它，怎么好意思说自己过得挺好/index.html">
+<meta property="og:title" content="solr-简介与安装（图文详解）">
+<meta property="og:url" content="http://yoursite.com/2017/09/03/solr-简介与安装（图文详解）/index.html">
 <meta property="og:site_name" content="Qi&#39;s Blog">
-<meta property="og:description" content="照顾好自己，如果尚有余力，记得保护美好的东西不畏不惧不怂不退不磨叽。">
+<meta property="og:description" content="简单介绍 solr，然后详细描述了 solr 的安装过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-097ba08096a69d65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-20T11:54:31.609Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-1271cd569c1ad5da.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-e41ef11f2af95984.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-d0a82659c2f4703a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-f8b95331951ee85f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-839859617ff3c327.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-63add2577e2e9bd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-9cae10e2bbbbb04d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-fd28071aa73a1d92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-e1c63854c46ad6c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-03T06:45:59.959Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="没有它，怎么好意思说自己过得挺好">
-<meta name="twitter:description" content="照顾好自己，如果尚有余力，记得保护美好的东西不畏不惧不怂不退不磨叽。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-097ba08096a69d65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="solr-简介与安装（图文详解）">
+<meta name="twitter:description" content="简单介绍 solr，然后详细描述了 solr 的安装过程">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-1271cd569c1ad5da.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -135,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/04/没有它，怎么好意思说自己过得挺好/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/03/solr-简介与安装（图文详解）/"/>
 
 
 
 
 
-  <title>没有它，怎么好意思说自己过得挺好 | Qi's Blog</title>
+  <title>solr-简介与安装（图文详解） | Qi's Blog</title>
   
 
 
@@ -278,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/04/没有它，怎么好意思说自己过得挺好/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/solr-简介与安装（图文详解）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xuguoqing07">
@@ -295,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">没有它，怎么好意思说自己过得挺好</h1>
+          <h1 class="post-title" itemprop="name headline">solr-简介与安装（图文详解）</h1>
         
 
         <div class="post-meta">
@@ -307,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T17:35:54+08:00">
-                2017-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T14:41:02+08:00">
+                2017-09-03
               </time>
             
 
@@ -330,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
+                  <a href="/categories/solr/" itemprop="url" rel="index">
+                    <span itemprop="name">solr</span>
                   </a>
                 </span>
 
@@ -347,7 +355,7 @@
 
           
           
-             <span id="/2017/08/04/没有它，怎么好意思说自己过得挺好/" class="leancloud_visitors" data-flag-title="没有它，怎么好意思说自己过得挺好">
+             <span id="/2017/09/03/solr-简介与安装（图文详解）/" class="leancloud_visitors" data-flag-title="solr-简介与安装（图文详解）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -379,24 +387,35 @@
 
       
         <blockquote>
-<p>照顾好自己，如果尚有余力，记得保护美好的东西不畏不惧不怂不退不磨叽。</p>
+<p>简单介绍 solr，然后详细描述了 solr 的安装过程</p>
 </blockquote>
 <a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/5499281-097ba08096a69d65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>或许你会觉得现在的自己能力有限，得到内心想要的东西还很困难，但你至少还可以去<strong>拥有健康的身体！</strong></p>
-<p><strong>人生四个阶段，不想上学，不想上班，不想上医院，不想上西天。</strong></p>
-<p>第一个阶段如果逝去，即便你想上学也回不到过去，第二个阶段自己还很难掌控，而最后俩阶段应该能够告诉我们一个足够健康的身体多么重要。</p>
-<p>前几天本人耳朵突然觉得有些疼，然后去药店拿了滴耳液心想睡一觉应该就没事儿了。</p>
-<p>然后第二天一大早被耳朵疼醒，真的挺疼的……  当时有点害怕，心想，卧槽，劳资不会要失聪了吧，世界那么大，我还没咋看呢！诗和远方都在等着我呢！</p>
-<p>当我在医院的检测仪器上看到自己耳朵里的情况时第一反应是震惊，然后就回归平静。无论如何，把身子养好要紧！</p>
-<p>在医院的时候我就在反思，我们总说<strong>身体是革命的本钱</strong>，那问问自己到底有多重视自己的本钱？我们总是在失去一些东西的时候才懂得去珍惜。</p>
-<p>现在的生活节奏很快，很多人都为了自己的目标拼命奋斗，也许这么一直努力下去你可能会得到回报，说句不好听的，<strong>即便你得到了，也得有命去享受不是？</strong></p>
-<p>我一直觉得自己所追求的就是一个字，freedom。有点小钱，有些空闲，去做自己想做的事情，去心爱的球场为喜欢的队伍加油助威，去看钟爱的演唱会，和喜欢的人儿漫步在心中的那座城市。</p>
-<p>这一切的基础就是<strong>拥有一个健康的身体。</strong></p>
-<p>如果身体出了 bug，耗费的不仅仅是金钱，还有你宝贵的时间与精力，这个道理我们应该都懂。</p>
-<p>所以呀即便再忙，也要懂得照顾好自己，多读书少熬夜，不然的话哪儿来的资本说自己过的很好，哪来的勇气去追求自己的理想。</p>
-<p><strong>有啥也别有病没啥也别没精神，人有精神老变少地有精神土生根。</strong></p>
-<p><strong>这篇文章只是想警示包括我在内的大家，保重身体！就像开篇说的一样，其他的都是虚的，照顾好自己，如果尚有余力，记得保护美好的东西不畏不惧不怂不退不磨叽。</strong></p>
+<h1 id="一、solr-简介"><a href="#一、solr-简介" class="headerlink" title="一、solr 简介"></a>一、solr 简介</h1><p><img src="http://upload-images.jianshu.io/upload_images/5499281-1271cd569c1ad5da.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="1、什么是solr"><a href="#1、什么是solr" class="headerlink" title="1、什么是solr?"></a>1、什么是solr?</h2><p>Solr 是一个独立的<strong>企业级搜索应用服务器</strong>，它对外提供类似于<br> Web-service 的 API 接口。用户可以通过 http 请求，向搜索引擎服务器提交一定格式的 XML 文件，生成索引；也可以通过 Http Get 操作提出查找请求，并得到 XML 格式的返回结果。</p>
+<p><strong>solr 的查询速度要比 MySQL 更快。</strong></p>
+<h2 id="2、与-lucene-关系"><a href="#2、与-lucene-关系" class="headerlink" title="2、与 lucene 关系"></a>2、与 lucene 关系</h2><p>Lucene 是一个搜索引擎工具。Solr 与 Lucene 不是竞争的关系，solr 是基于 Lucene 封装的，二者的索引库共用。<strong>Solr 操作比 lucene 更人性化，也更简单。</strong></p>
+<h2 id="3、Solr-与-MySQL-关系"><a href="#3、Solr-与-MySQL-关系" class="headerlink" title="3、Solr 与 MySQL 关系"></a>3、Solr 与 MySQL 关系</h2><p>MySQL ：是一个关系型数据库。<strong>Solr 与 MySQL 是两个不同的产品。</strong><br><strong>Solr 的索引库一般是从 MySQL 中的数据进行分析得出结果。MySQL 提供了 solr 索引的数据来源。</strong>也就是说，solr 的索引库来源于 MySQL 。</p>
+<h1 id="二、solr-安装"><a href="#二、solr-安装" class="headerlink" title="二、solr 安装"></a>二、solr 安装</h1><p>将 solr 安装包上传到 Linux 里的 root 目录下。<a href="http://pan.baidu.com/s/1geE4wi3" target="_blank" rel="external">如果没有安装包，请点击这里。</a>（密码：etlv）<br>然后输入命令解压安装包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxvf solr-4.10.4.tgz</div></pre></td></tr></table></figure></p>
+<h2 id="1、解压-solr-war"><a href="#1、解压-solr-war" class="headerlink" title="1、解压 solr.war"></a>1、解压 solr.war</h2><p>将解压后的目录中的 solr.war 解压至安装的 tomcat 中<br><img src="http://upload-images.jianshu.io/upload_images/5499281-e41ef11f2af95984.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="solr.war 的路径"></p>
+<p>在 Tomcat 的 webapps 下 创建 solr 目录，然后将 solr.war 解压至刚刚创建的 solr 目录下，命令如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-d0a82659c2f4703a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="2、创建-solr-home-目录"><a href="#2、创建-solr-home-目录" class="headerlink" title="2、创建 solr-home 目录"></a>2、创建 solr-home 目录</h2><ul>
+<li>创建一个 solr 的 home 目录，然后将解压后的 solr-4.10.4/example/solr 中的所有文件复制到刚创建的 home 目录下：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-f8b95331951ee85f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>修改 Tomcat 目录下 webapps/solr/WEB-INF/web.xml 文件内容，指定 solr-home 的位置，输入命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/local/solr/tomcat/apache-tomcat-7.0.68/webapps/solr/WEB-INF/web.xml</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-839859617ff3c327.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>如图中所述，将此处原有的注释删除掉，然后在蓝色方框处指定你自己创建的 solr-home 目录。</strong></p>
+<h2 id="3、复制其他相关文件"><a href="#3、复制其他相关文件" class="headerlink" title="3、复制其他相关文件"></a>3、复制其他相关文件</h2><h3 id="3-1-复制-log4-j相关-jar-包"><a href="#3-1-复制-log4-j相关-jar-包" class="headerlink" title="3.1 复制 log4 j相关 jar 包"></a>3.1 复制 log4 j相关 jar 包</h3><p>所需要的 jar 包原路径：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-63add2577e2e9bd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>复制 jar 包至 tomcat/webapps/solr/WEB-INF/lib/ 目录下，如下所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-9cae10e2bbbbb04d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="复制 jar 包"></p>
+<h3 id="3-2-复制-log4j-properites"><a href="#3-2-复制-log4j-properites" class="headerlink" title="3.2 复制 log4j.properites"></a>3.2 复制 log4j.properites</h3><p>将此文件复制到  tomcat/webapps/solr/WEB-INF/classes 目录下，如果该目录不存在，则手动创建此目录：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-fd28071aa73a1d92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="复制 log4j.properites"></p>
+<h2 id="4、重启-tomcat、关闭防火墙访问即可"><a href="#4、重启-tomcat、关闭防火墙访问即可" class="headerlink" title="4、重启 tomcat、关闭防火墙访问即可"></a>4、重启 tomcat、关闭防火墙访问即可</h2><p><img src="http://upload-images.jianshu.io/upload_images/5499281-e1c63854c46ad6c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="重启 tomcat"><br>关闭防火墙：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables stop</div></pre></td></tr></table></figure></p>
+<p>在浏览器输入：<br><strong>虚拟机 ip 地址：tomcat 端口号/solr</strong> 即可访问 solr。</p>
 
       
     </div>
@@ -421,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/04/好久不见，别来无恙/" rel="next" title="好久不见，别来无恙">
-                <i class="fa fa-chevron-left"></i> 好久不见，别来无恙
+              <a href="/2017/08/30/Java-中的类为什么要实现序列化呢/" rel="next" title="Java 中的类为什么要实现序列化呢">
+                <i class="fa fa-chevron-left"></i> Java 中的类为什么要实现序列化呢
               </a>
             
           </div>
@@ -430,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/04/简说-JDBC-（小白入门必备）/" rel="prev" title="简说 JDBC  （小白入门必备）">
-                简说 JDBC  （小白入门必备） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png"
@@ -576,6 +600,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、solr-简介"><span class="nav-number">1.</span> <span class="nav-text">一、solr 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、什么是solr"><span class="nav-number">1.1.</span> <span class="nav-text">1、什么是solr?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、与-lucene-关系"><span class="nav-number">1.2.</span> <span class="nav-text">2、与 lucene 关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Solr-与-MySQL-关系"><span class="nav-number">1.3.</span> <span class="nav-text">3、Solr 与 MySQL 关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、solr-安装"><span class="nav-number">2.</span> <span class="nav-text">二、solr 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、解压-solr-war"><span class="nav-number">2.1.</span> <span class="nav-text">1、解压 solr.war</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、创建-solr-home-目录"><span class="nav-number">2.2.</span> <span class="nav-text">2、创建 solr-home 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、复制其他相关文件"><span class="nav-number">2.3.</span> <span class="nav-text">3、复制其他相关文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-复制-log4-j相关-jar-包"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 复制 log4 j相关 jar 包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-复制-log4j-properites"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 复制 log4j.properites</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、重启-tomcat、关闭防火墙访问即可"><span class="nav-number">2.4.</span> <span class="nav-text">4、重启 tomcat、关闭防火墙访问即可</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
