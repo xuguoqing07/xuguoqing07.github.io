@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-54c809c406bfe031.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-2e98422d7b2c4cbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-ac8f973ad6b57011.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-17T06:16:33.451Z">
+<meta property="og:updated_time" content="2017-09-18T06:29:13.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聊一聊单点登录系统">
 <meta name="twitter:description" content="之前做了单点登录系统，然后也查阅了一些资料，参考着这些资料加上自己的理解，本文就聊一聊单点登录系统以及实现原理，但并不涉及代码部分，希望此文能对你有所帮助。">
@@ -412,7 +412,6 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/5499281-2e98422d7b2c4cbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单点登录原理图"></p>
 <p>对上图简要说明：</p>
 <ul>
-<li>用户向系统 1 发起注销请求；</li>
 <li>用户访问系统1，系统 1 发现用户未登录，跳转至 sso 认证中心，并将自己的地址作为参数；</li>
 <li>sso 认证中心发现用户未登录，将用户引导至登录页面；</li>
 <li>用户输入用户名密码提交登录申请；</li>
