@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本文是对设计模式的经验与总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 设计模式学习总结">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/Java-设计模式学习总结/index.html">
+<meta property="og:site_name" content="Qi&#39;s Blog">
+<meta property="og:description" content="本文是对设计模式的经验与总结">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-7a385091f9e3399f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-9add570d07571c1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-fda93768c1cf5168.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-68d5a50b6731fe88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5499281-af802fe3563b5bfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-24T10:38:20.649Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 设计模式学习总结">
+<meta name="twitter:description" content="本文是对设计模式的经验与总结">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5499281-7a385091f9e3399f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/24/Java-设计模式学习总结/"/>
+
+
+
+
+
+  <title>Java 设计模式学习总结 | Qi's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qi's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/Java-设计模式学习总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuguoqing07">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qi's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 设计模式学习总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T17:47:27+08:00">
+                2017-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/24/Java-设计模式学习总结/" class="leancloud_visitors" data-flag-title="Java 设计模式学习总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文是对设计模式的经验与总结</p>
+</blockquote>
+<a id="more"></a>
+<p>之前在网上看到对于设计模式写的很好的文章，特意贴过来与大家分享，<a href="http://blog.csdn.net/csdn_aiyang/article/details/73177084" target="_blank" rel="external">点击此处可查看原文</a>。</p>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>面向对象编程有七大原则，即经常提到的 Design Pattern，提倡它的根本原因是为了代码复用，增加可维护性。设计模式就是实现了这些原则，从而达到了代码复用、增加可维护性的目的。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-7a385091f9e3399f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="七大设计原则"></p>
+<p>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-9add570d07571c1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设计模式"></p>
+<h1 id="二、7-个设计原则"><a href="#二、7-个设计原则" class="headerlink" title="二、7 个设计原则"></a>二、7 个设计原则</h1><p>因为设计模式就是基于这些原则的实现，所以很有必要了解这些原则，下面主要对面向对象编程的几个原则进行简单介绍。</p>
+<blockquote>
+<p>单一职责原则 ( SRP )</p>
+</blockquote>
+<p>英文全称是 Single Responsibility Principle，定义是一个类，应该只有一个引起它变化的原因。类变化的原因就是职责，如果一个类承担的职责过多，就等于把这些职责耦合在一起了。一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当发生变化时，设计会遭受到意想不到的破坏。而如果想要避免这种现象的发生，就要尽可能的遵守单一职责原则。此原则的核心就是解耦和增强内聚性。</p>
+<blockquote>
+<p>开闭原则 ( OCP )</p>
+</blockquote>
+<p>英文全称是 Open Close Principle，定义是软件实体（包括类、模块<br>、函数等）应该对于扩展时开放的，对于修改是封闭的。开闭原则是是面向对象设计中最重要的原则之一，其它很多的设计原则都是实现开闭原则的一种手段。</p>
+<blockquote>
+<p>里氏替换原则 ( LSP )</p>
+</blockquote>
+<p>英文全称是 Liskov Substitution Principle，是面向对象设计的基本原则之一。 定义是任何基类可以出现的地方，子类一定可以出现。LSP 是继承复用的基石，只有当派生类可以替换掉基类，且软件单位的功能不受到影响时，基类才能真正被复用，而派生类也能够在基类的基础上增加新的行为。里氏替换原则是对开闭原则的补充。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏替换原则是对实现抽象化的具体步骤的规范。</p>
+<blockquote>
+<p>依赖倒置原则 ( DIP )</p>
+</blockquote>
+<p>英文全称是 Dependence Inversion Principle，这个原则是开闭原则的基础，依赖倒置原则就是要求调用者和被调用者都依赖抽象，这样两者没有直接的关联和接触，在变动的时候，一方的变动不会影响另一方的变动。依赖倒置强调了抽象的重要性，针对接口编程，依赖于抽象而不依赖于具体。</p>
+<blockquote>
+<p>接口隔离原则 ( ISP )</p>
+</blockquote>
+<p>英文全称是 Interface Segregation Principle，这个原则的意思是使用多个隔离的接口，比使用单个接口要好。目的就是降低类之间的耦合度，便于软件升级和维护。</p>
+<blockquote>
+<p>最少知道原则(迪米特原则)</p>
+</blockquote>
+<p>一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。通俗地说就是不要和陌生人说话，即一个对象应对其他对象有尽可能少的了解。迪米特法则的初衷在于降低类之间的耦合。由于每个类尽量减少对其他类的依赖，因此，很容易使得系统的功能模块功能独立，相互之间不存在（或很少有）依赖关系。</p>
+<blockquote>
+<p>合成/聚合复用（CARP）</p>
+</blockquote>
+<p>英文全称是 Composite Reuse Principle，合成/聚合复用原则经常又叫做合成复用原则。合成/聚合复用原则的潜台词是：我只是用你的方法，我们不一定是同类。继承的耦合性更大，比如一个父类后来添加实现一个接口或者去掉一个接口，那子类可能会遭到毁灭性的编译错误，但如果只是组合聚合，只是引用类的方法，就不会有这种巨大的风险，同时也实现了复用。</p>
+<h1 id="三、创建型模式-5种"><a href="#三、创建型模式-5种" class="headerlink" title="三、创建型模式 ( 5种 )"></a>三、创建型模式 ( 5种 )</h1><p>创建型模式是指这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用新的运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-fda93768c1cf5168.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建型模式"></p>
+<blockquote>
+<p>1.单例模式</p>
+<ul>
+<li>定义<br>确保某一个类只有一个实例，并自行实例化向整个系统提供这个实例。</li>
+<li>简介<br>单例模式理解起来不难，典型例子有一个公司只能有一个 CEO。它主要是为了保证一个类仅有一个实例，这个类中自己提供一个返回实例的方法，方法中先判断系统是否已经有这个单例，如果有则返回，如果没有则创建。如果创建多个实例会消耗过多的资源或者某种类型的对象只应该有且只有一个时，应该考虑使用单例模式。</li>
+<li>实现<br>单例模式理解起来不难，重要的是需要掌握它的几种常见写法。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">写法一、懒汉式写法</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance; </div><div class="line"></div><div class="line">    <span class="comment">//构造函数私有</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;</div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123; </div><div class="line">         <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;  </div><div class="line">             instance = <span class="keyword">new</span> Singleton();  </div><div class="line">         &#125;  </div><div class="line">         <span class="keyword">return</span> instance;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">写法二、DCL（Double Check Lock） 双重校验锁</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;</div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;  </div><div class="line"></div><div class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </div><div class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;  </div><div class="line">            <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </div><div class="line">                singleton = <span class="keyword">new</span> Singleton();  </div><div class="line">            &#125;  </div><div class="line">          &#125;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> singleton;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">写法三、静态内部类单例模式</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;</div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </div><div class="line">          <span class="keyword">return</span> SingletonHolder.INSTANCE;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;  </div><div class="line">         <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>上面只列出了单例模式常见的三种写法，单例模式还有好几种别的写法，这里就不全部列出了。上面的第一种懒汉式写法做到了延迟创建和线程安全，缺点是每次调用 getInstance() 时都必须进行同步，效率不佳。第二种 DCL 方式比较常见，两次判空，第一次判空避免了不必要的同步，第二次保证了单例创建，这种方式比较不错，但是在高并发环境下有时会出现问题。第三种方法最被推荐，线程安全也保证了实例唯一。</p>
+<blockquote>
+<p>2.工厂方法模式</p>
+</blockquote>
+<ul>
+<li>定义<br>定义一个用于创建对象的接口，让子类决定实例化哪一个类。</li>
+<li>举例<br>工厂方法模式的典型例子，自行车分为山地自行车和公路自行车等，当需要买自行车时，我们直接去自行车厂里告诉厂长我们需要的自行车即可。</li>
+<li>例子<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、定义一个接口自行车，Bike。</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Bike</span></span>&#123; </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ride</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">2</span>、定义实现类山地自行车，MBike</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MBike</span> <span class="keyword">implements</span> <span class="title">Bike</span></span>&#123; </div><div class="line">    <span class="meta">@Override</span> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123; </div><div class="line">           System.out.println(<span class="string">"MBike Rides... "</span>); </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">3</span>、定义实现类公路自行车，RBike</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RBike</span> <span class="keyword">implements</span> <span class="title">Bike</span></span>&#123; </div><div class="line">    <span class="meta">@Override</span> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123; </div><div class="line">           System.out.println(<span class="string">"RBike Rides... "</span>); </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">4</span>、工厂类，负责创建对象</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BikeFactory</span> </span>&#123;</div><div class="line">   <span class="comment">//使用 getShape 方法获取形状类型的对象</span></div><div class="line">   <span class="function"><span class="keyword">public</span> Bike <span class="title">getBike</span><span class="params">(String bikeType)</span></span>&#123;</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(bikeType == <span class="keyword">null</span>)&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">      &#125;        </div><div class="line"></div><div class="line">      <span class="keyword">if</span>(bikeType.equalsIgnoreCase(<span class="string">"MBike"</span>))&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">new</span> MBike();</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(shapeType.equalsIgnoreCase(<span class="string">"RBike"</span>))&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">new</span> RBike();</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">5</span>、子类决定实例化哪一个类</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryPatternDemo</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">      BikeFactory bikeFactory = <span class="keyword">new</span> BikeFactory();</div><div class="line"></div><div class="line">      Bike bike1 = bikeFactory.getBike(<span class="string">"MBike"</span>);</div><div class="line">      bike1.ride();</div><div class="line"></div><div class="line">      Bike bike2= bikeFactory.getBike(<span class="string">"RBike"</span>);</div><div class="line">      bike2.ride();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>3.抽象工厂模式</p>
+</blockquote>
+<ul>
+<li>定义<br>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。<br>抽象工厂模式主要解决接口选择的问题，典型例子是手机和电脑问题，假设抽象产品1是手机，具体产品是 Android 手机和 iOS 手机，抽象产品2是电脑，具体产品是 Windows 电脑和 Mac 电脑，抽象工厂是同时生产手机和电脑的公司，具体工厂是联想公司和苹果公司。</li>
+</ul>
+<p>抽象工厂的优点是当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象。缺点是产品族扩展非常困难，要增加一个系列的某一产品，既要在抽象工厂里加代码，又要在具体工厂里加代码。</p>
+<blockquote>
+<p>4.建造者模式</p>
+<ul>
+<li>定义<br>将一个复杂的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。</li>
+<li>简介<br>建造者模式主要解决在软件系统中一个复杂对象的创建工作。通常一个复杂对象是由各个部分的子对象用一定的算法构成，由于需求的变化，这个复杂对象的各个部分经常面临着剧烈的变化，但是将它们组合在一起的算法却相对稳定。</li>
+</ul>
+</blockquote>
+<p>建造者模式的一个典型例子是Android中的AlertDialog的构建过程。还有个例子是计算机的组装，计算机是个复杂的对象，它是有很多零件组装而成，显示器、操作系统，鼠标等，通过创建Builder接口来控制零件的组装过程，这样当组件发生变化时，虽然经过同样的构建过程，但是最后得到的结果不同。</p>
+<blockquote>
+<p>5.原型模式</p>
+<ul>
+<li>定义<br>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</li>
+<li>简介<br>原型模式不难理解，它主要是用在实例创建的时候，因为有的时候我们通过 new 创建一个对象时可能成本过高，这时我们可以考虑直接通过直接克隆实例快速创建对象。克隆后的实例与原实例内部属性一致。原型模式需要注意一个深拷贝和浅拷贝的问题。<h1 id="四、结构型模式-7种"><a href="#四、结构型模式-7种" class="headerlink" title="四、结构型模式(7种)"></a>四、结构型模式(7种)</h1></li>
+</ul>
+</blockquote>
+<p>结构型模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-68d5a50b6731fe88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结构型模式"></p>
+<blockquote>
+<p>1.适配器模式</p>
+<ul>
+<li>定义<br>将一个类的接口转换成另外一个客户希望的接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</li>
+<li>简介<br>适配器模式包括两种类型，类适配器模式和对象适配器模式。这里主要介绍对象适配器模式，因为它更灵活。适配器模式中主要有三个部分，Target、Adapter 和 Adaptee，其中 Target 是目标角色，Adaptee 是需要被转换的对象，Adapter 就是适配器。例如，现在有个手机充电电压是<br> 5v，而插座电压是 220v，这时我们可以把充电器看成是 Adapter，它将电压进行转化最后得到结果。</li>
+<li>例子<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Target 目标接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Volt5</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getVolt5</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Adaptee 需要被转换的对象</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Volt220</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getVolt220</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">220</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Adapter 适配器 </span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VoltAdapter</span> <span class="keyword">implements</span> <span class="title">Volt5</span> </span>&#123;</div><div class="line"></div><div class="line">    Volt220 mVolt220;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VoltAdapter</span><span class="params">(Volt220 adaptee)</span> </span>&#123;</div><div class="line">        mVolt220 = adaptee;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getVolt220</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">220</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getVolt5</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">5</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.桥接模式</p>
+<ul>
+<li>桥接模式<br>将抽象部分与实现部分分离，使它们都可以独立的变化。</li>
+<li>简介<br>在软件系统中，某些类型由于自身的逻辑，它具有两个或多个维度的变化，那么如何应对这种“多维度的变化”，这就要使用桥接模式。桥接模式需要重点理解的抽象部分，实现部分，脱耦。一个典型的例子是咖啡加糖问题，抽象部分有 Coffee，其下有 LargeCoffee，SmallCoffee，实现部分是 CoffeeAdd，其下有 Sugar，Normal，抽象类 Coffee 中引用<br> CoffeeAdd，这样 CoffeeAdd 其实就是一个桥接。<br>3.装饰模式</li>
+<li>定义<br>动态地给一个对象添加一些额外的职责。就增加功能来说，Decorator模式相比生成子类更为灵活。</li>
+<li>简介<br>装饰模式是作为现有的类的一个包装，它允许向一个现有的对象添加新的功能，同时又不改变其结构。这种模式创建了一个装饰类，用来包装原有的类，并在保持类方法签名完整性的前提下，提供了额外的功能。装饰模式主要是装饰器类 Decorator 的设计，它对指定对象进行装饰。<br>4.组合模式</li>
+<li>定义<br>将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</li>
+<li>简介<br>组合模式理解起来相对简单，典型的例子就是假设公司 A，里面有不同的部门，不同的部分下有不同的员工，这样一个部门下的所有员工组合成了一个部门，所有部门组合成了整个公司。<br>5.外观模式</li>
+<li>定义<br>为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</li>
+<li>简介<br>外观模式的一个典型例子是去医院看病，挂号、门诊、划价、取药，让患者或患者家属觉得很复杂，如果有提供接待人员，只让接待人员来处理，就很方便。<br>6.享元模式</li>
+<li>定义<br>运用共享技术有效地支持大量细粒度的对象。</li>
+<li>简介<br>在有大量对象时，有可能会造成内存溢出，我们把其中共同的部分抽象出来，如果有相同的业务请求，直接返回在内存中已有的对象，避免重新创建。<br>7.代理模式</li>
+<li>定义<br>为其他对象提供一种代理以控制对这个对象的访问。</li>
+<li>简介<br>代理模式主要解决在直接访问对象时带来的问题。举个例子，猪八戒去找高翠兰结果是孙悟空变的，可以这样理解：把高翠兰的外貌抽象出来，高翠兰本人和孙悟空都实现了这个接口，猪八戒访问高翠兰的时候看不出来这个是孙悟空，所以说孙悟空是高翠兰代理类。<h1 id="五、行为型模式-11种"><a href="#五、行为型模式-11种" class="headerlink" title="五、行为型模式 ( 11种 )"></a>五、行为型模式 ( 11种 )</h1></li>
+</ul>
+</blockquote>
+<p>这些设计模式特别关注对象之间的通信。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5499281-af802fe3563b5bfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="行为型模式"></p>
+<blockquote>
+<p>1.模板方法模式</p>
+<ul>
+<li>定义<br>一个操作中的算法的框架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</li>
+<li>例子<br>模板方法模式一个典型例子就是 Android 中的异步任务类 AsyncTask，它对异步任务的执行进行了流程封装，子类继承它时，只需在指定的流程中实现具体的操作即可。<br>2.命令模式</li>
+<li>定义<br>将一个请求封装为一个对象，从而可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可取消的操作。</li>
+<li>简介<br>命令模式主要是通过调用者调用接受者执行命令，这个模式中需要理解的是三个角色：(1) Receiver 真正的命令执行对象 (2) Command 持有一个对 Receiver 的引用，调用 Receiver 的相关方法。(3) Invoker 请求者，持有一个对 Command 的引用，调用 Command 的方法执行具体命令。<br>3.迭代器模式</li>
+<li>定义<br>提供一种方法顺序访问一个聚合对象中各个元素, 而又不需暴露该对象的内部表示。</li>
+<li>简介<br>在 Java 集合框架中我们知道对于一个指定的集合类，我们可以使用一个特定的 Iterator 迭代器来对集合中的所有元素进行遍历。这样结合来看，迭代器模式很好理解了。<br>4.观察者模式</li>
+<li>定义<br>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</li>
+<li>简介<br>观察者模式可以结合 Android 中的 ListView 来理解，ListView 关联的适配器 Adapter 在数据发生变化时会通过 notifyDataSetChanged() 方法来通知界面刷新。<br>5.中介者模式</li>
+<li>定义<br>用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</li>
+<li>简介<br>中介者模式的典型例子就是未加入 WTO 之前各个国家相互贸易，结构复杂，大家都加入WTO后是各个国家通过 WTO 来互相贸易，变得规范。<br>6.备忘录模式</li>
+<li>定义<br>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到保存的状态。</li>
+<li>简介<br>备忘录模式的典型例子就是git版本管理工具，它帮我们保存了每次提交后的项目状态，在必要的时候我们可以回退到指定的版本中。<br>7.解释器模式</li>
+<li>定义<br>给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。</li>
+<li>简介<br>解释器的典型例子是在编译原理中的应用，如果一种特定类型的问题发生的频率足够高，那么可能就值得将该问题的各个实例表述为一个简单语言中的句子。这样就可以构建一个解释器，该解释器通过解释这些句子来解决该问题。<br>8.状态模式</li>
+<li>定义<br>允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它的类。</li>
+<li>简介<br>状态模式主要解决对象的行为依赖于它的状态（属性），并且可以根据它的状态改变而改变它的相关行为。典型的例子是一个人在不同的状态下完成一件事的结果可能是不同的。<br>9.策略模式</li>
+<li>定义<br>定义一系列的算法，把它们一个个封装起来， 并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。</li>
+<li>简介<br>定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。<br>10.责任链模式</li>
+<li>定义<br>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</li>
+<li>简介<br>责任链模式，避免请求发送者与接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。<br>11.访问者模式</li>
+<li>定义<br>封装一些作用于某种数据结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</li>
+<li>简介<br>访问者模式是一种将数据操作和数据结构分离的设计模式，它通常使用在对象结构比较稳定，但是经常需要在此对象结构上定义新的操作，或者需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而需要避免让这些操作”污染”这些对象的类，使用访问者模式将这些封装到类中。</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/17/聊一聊单点登录系统/" rel="next" title="聊一聊单点登录系统">
+                <i class="fa fa-chevron-left"></i> 聊一聊单点登录系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk0Mi81NTEx"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/xuguoqing07/xuguoqing07.github.io/master/uploads/avatar.png"
+               alt="xuguoqing07" />
+          <p class="site-author-name" itemprop="name">xuguoqing07</p>
+           
+              <p class="site-description motion-element" itemprop="description">Love football,love life and love you more.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xuguoqing07" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/?lang=zh-cn" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3378285750/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、7-个设计原则"><span class="nav-number">2.</span> <span class="nav-text">二、7 个设计原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、创建型模式-5种"><span class="nav-number">3.</span> <span class="nav-text">三、创建型模式 ( 5种 )</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、结构型模式-7种"><span class="nav-number">4.</span> <span class="nav-text">四、结构型模式(7种)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、行为型模式-11种"><span class="nav-number">5.</span> <span class="nav-text">五、行为型模式 ( 11种 )</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuguoqing07</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("mgNX84iBlXxnOFQemmEj5I4y-gzGzoHsz", "dTrei5TRjiXzayDDoj60gujH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
